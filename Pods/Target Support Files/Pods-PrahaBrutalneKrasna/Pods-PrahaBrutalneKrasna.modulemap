@@ -1,6 +1,0 @@
-framework module Pods_PrahaBrutalneKrasna {
-  umbrella header "Pods-PrahaBrutalneKrasna-umbrella.h"
-
-  export *
-  module * { export * }
-}
