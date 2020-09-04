@@ -1,0 +1,946 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A1999F1250233D400E8D5E8 /* ThematicsCreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1999F0250233D400E8D5E8 /* ThematicsCreditsViewController.swift */; };
+		4A1999F325023F7300E8D5E8 /* map.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 4A1999F225023F7300E8D5E8 /* map.geojson */; };
+		4A45297723702635006372D0 /* UpdatedRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A45297623702635006372D0 /* UpdatedRes.swift */; };
+		4A81426624FFD78A00476B4A /* PlaceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A81426524FFD78A00476B4A /* PlaceCollectionViewCell.xib */; };
+		4A81426A2500DB5F00476B4A /* ArchFloatingPanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8142692500DB5F00476B4A /* ArchFloatingPanelLayout.swift */; };
+		4A9028FC25022BF0005AAAF1 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9028F725022BEF005AAAF1 /* LocationsViewController.swift */; };
+		4A9028FD25022BF0005AAAF1 /* LocationsPullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9028F825022BEF005AAAF1 /* LocationsPullViewController.swift */; };
+		4A9028FE25022BF0005AAAF1 /* ThematicsPullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9028FA25022BEF005AAAF1 /* ThematicsPullViewController.swift */; };
+		4A9028FF25022BF0005AAAF1 /* ThematicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9028FB25022BEF005AAAF1 /* ThematicsViewController.swift */; };
+		4AA2AE562362DD6F00E6566E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AA2AE082362DD6F00E6566E /* Localizable.strings */; };
+		4AA2AE582362DD6F00E6566E /* TagManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE0D2362DD6F00E6566E /* TagManager.swift */; };
+		4AA2AE592362DD6F00E6566E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE0E2362DD6F00E6566E /* LocationManager.swift */; };
+		4AA2AE5A2362DD6F00E6566E /* ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE102362DD6F00E6566E /* ScreenType.swift */; };
+		4AA2AE5B2362DD6F00E6566E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA2AE112362DD6F00E6566E /* Assets.xcassets */; };
+		4AA2AE5C2362DD6F00E6566E /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AA2AE122362DD6F00E6566E /* style.json */; };
+		4AA2AE5D2362DD6F00E6566E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE132362DD6F00E6566E /* Config.swift */; };
+		4AA2AE5E2362DD6F00E6566E /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AA2AE142362DD6F00E6566E /* LaunchScreen.strings */; };
+		4AA2AE5F2362DD6F00E6566E /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4AA2AE162362DD6F00E6566E /* Main.strings */; };
+		4AA2AE612362DD6F00E6566E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA2AE1A2362DD6F00E6566E /* LaunchScreen.storyboard */; };
+		4AA2AE622362DD6F00E6566E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA2AE1C2362DD6F00E6566E /* Main.storyboard */; };
+		4AA2AE6D2362DD6F00E6566E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE2B2362DD6F00E6566E /* Photo.swift */; };
+		4AA2AE6E2362DD6F00E6566E /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE2C2362DD6F00E6566E /* Tag.swift */; };
+		4AA2AE6F2362DD6F00E6566E /* KingfisherSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE2E2362DD6F00E6566E /* KingfisherSource.swift */; };
+		4AA2AE702362DD6F00E6566E /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE302362DD6F00E6566E /* CLLocationManager+Rx.swift */; };
+		4AA2AE712362DD6F00E6566E /* RxCLLocationManagerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE312362DD6F00E6566E /* RxCLLocationManagerDelegateProxy.swift */; };
+		4AA2AE722362DD6F00E6566E /* GMSMapView+ClusterKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE332362DD6F00E6566E /* GMSMapView+ClusterKit.m */; };
+		4AA2AE732362DD6F00E6566E /* CKGeoPointOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE352362DD6F00E6566E /* CKGeoPointOperation.m */; };
+		4AA2AE742362DD6F00E6566E /* stations.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 4AA2AE362362DD6F00E6566E /* stations.geojson */; };
+		4AA2AE752362DD6F00E6566E /* random.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 4AA2AE392362DD6F00E6566E /* random.geojson */; };
+		4AA2AE772362DD6F00E6566E /* MapUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE3C2362DD6F00E6566E /* MapUtil.swift */; };
+		4AA2AE782362DD6F00E6566E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE3D2362DD6F00E6566E /* AppDelegate.swift */; };
+		4AA2AE7A2362DD6F00E6566E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE402362DD6F00E6566E /* BaseViewController.swift */; };
+		4AA2AE7C2362DD6F00E6566E /* AlignedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE432362DD6F00E6566E /* AlignedLabel.swift */; };
+		4AA2AE7D2362DD6F00E6566E /* TagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE442362DD6F00E6566E /* TagButton.swift */; };
+		4AA2AE7E2362DD6F00E6566E /* ScreenTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE452362DD6F00E6566E /* ScreenTypeButton.swift */; };
+		4AA2AE7F2362DD6F00E6566E /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE462362DD6F00E6566E /* TagView.swift */; };
+		4AA2AE802362DD6F00E6566E /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE472362DD6F00E6566E /* Annotation.swift */; };
+		4AA2AE812362DD6F00E6566E /* PlaceDetailGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE4A2362DD6F00E6566E /* PlaceDetailGalleryViewController.swift */; };
+		4AA2AE822362DD6F00E6566E /* PlaceDetailGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE4B2362DD6F00E6566E /* PlaceDetailGalleryCollectionViewCell.swift */; };
+		4AA2AE842362DD6F00E6566E /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE4D2362DD6F00E6566E /* PlaceDetailViewController.swift */; };
+		4AA2AE872362DD6F00E6566E /* 18_PBK_mapa-JSON_v02.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AA2AE512362DD6F00E6566E /* 18_PBK_mapa-JSON_v02.json */; };
+		4AA2AE892362DD6F00E6566E /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE542362DD6F00E6566E /* Service.swift */; };
+		4AA2AE8A2362DD6F00E6566E /* PlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA2AE552362DD6F00E6566E /* PlacesService.swift */; };
+		4AA2AE8C2362DE0F00E6566E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AA2AE8B2362DE0F00E6566E /* Default-568h@2x.png */; };
+		4ABAB86E236B08FB00BA82F9 /* PlaceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ABAB86D236B08FB00BA82F9 /* PlaceView.xib */; };
+		4ABAB870236B09AD00BA82F9 /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABAB86F236B09AD00BA82F9 /* PlaceView.swift */; };
+		4ADA6ECA2370464900E2363F /* TagsRes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADA6EC92370464900E2363F /* TagsRes.swift */; };
+		4AE4990524F5595F00EE4526 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AE4990424F5595F00EE4526 /* GoogleService-Info.plist */; };
+		4AE717332369845F00833E2E /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE717312369845F00833E2E /* Place.swift */; };
+		4AEB2309250225F500959001 /* map-style.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AEB2308250225F400959001 /* map-style.json */; };
+		4AFFA60324F53C6800797702 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA5F924F53C6800797702 /* ViewController.swift */; };
+		4AFFA60424F53C6800797702 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA5FA24F53C6800797702 /* View.swift */; };
+		4AFFA60524F53C6800797702 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA5FB24F53C6800797702 /* Delay.swift */; };
+		4AFFA60624F53C6800797702 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA5FC24F53C6800797702 /* String.swift */; };
+		4AFFA60724F53C6800797702 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA5FD24F53C6800797702 /* TextView.swift */; };
+		4AFFA60824F53C6800797702 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA5FE24F53C6800797702 /* Map.swift */; };
+		4AFFA60924F53C6800797702 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA5FF24F53C6800797702 /* Button.swift */; };
+		4AFFA60A24F53C6800797702 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA60024F53C6800797702 /* Color.swift */; };
+		4AFFA60B24F53C6800797702 /* Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA60124F53C6800797702 /* Numbers.swift */; };
+		4AFFA60C24F53C6800797702 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA60224F53C6800797702 /* Triangle.swift */; };
+		4AFFA61A24F53E1500797702 /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA60F24F53E1500797702 /* StackView.swift */; };
+		4AFFA61B24F53E1500797702 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA61024F53E1500797702 /* Number.swift */; };
+		4AFFA61C24F53E1500797702 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA61124F53E1500797702 /* ScrollView.swift */; };
+		4AFFA61D24F53E1500797702 /* PanExUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA61324F53E1500797702 /* PanExUtil.swift */; };
+		4AFFA61E24F53E1500797702 /* PullSwipeExUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA61424F53E1500797702 /* PullSwipeExUtil.swift */; };
+		4AFFA61F24F53E1500797702 /* ScrollViewExUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA61524F53E1500797702 /* ScrollViewExUtil.swift */; };
+		4AFFA62124F53E1500797702 /* CLLocationCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA61724F53E1500797702 /* CLLocationCoordinate.swift */; };
+		4AFFA62424F53FC000797702 /* PlaceSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA62324F53FC000797702 /* PlaceSection.swift */; };
+		4AFFA62624F5404300797702 /* PlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA62524F5404300797702 /* PlaceCollectionViewCell.swift */; };
+		4AFFA62E24F5453100797702 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA62824F5453100797702 /* Location.swift */; };
+		4AFFA62F24F5453100797702 /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA62924F5453100797702 /* Locations.swift */; };
+		4AFFA63024F5453100797702 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA62A24F5453100797702 /* Model.swift */; };
+		4AFFA63124F5453100797702 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA62B24F5453100797702 /* Image.swift */; };
+		4AFFA63324F5453100797702 /* Ar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA62D24F5453100797702 /* Ar.swift */; };
+		4AFFA63824F5458800797702 /* Thematics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA63524F5458800797702 /* Thematics.swift */; };
+		4AFFA63A24F5458800797702 /* Thematic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA63724F5458800797702 /* Thematic.swift */; };
+		92883C149322C5E45ACCE7A7 /* Pods_Archeologie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3CCE81D12BA82C1B290C11B /* Pods_Archeologie.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		14350762014BF6331F4BB81C /* Pods-MSMT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSMT.release.xcconfig"; path = "Pods/Target Support Files/Pods-MSMT/Pods-MSMT.release.xcconfig"; sourceTree = "<group>"; };
+		4A1999F0250233D400E8D5E8 /* ThematicsCreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThematicsCreditsViewController.swift; sourceTree = "<group>"; };
+		4A1999F225023F7300E8D5E8 /* map.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map.geojson; sourceTree = "<group>"; };
+		4A45297623702635006372D0 /* UpdatedRes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatedRes.swift; sourceTree = "<group>"; };
+		4A81426524FFD78A00476B4A /* PlaceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceCollectionViewCell.xib; sourceTree = "<group>"; };
+		4A8142692500DB5F00476B4A /* ArchFloatingPanelLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchFloatingPanelLayout.swift; sourceTree = "<group>"; };
+		4A9028F725022BEF005AAAF1 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		4A9028F825022BEF005AAAF1 /* LocationsPullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsPullViewController.swift; sourceTree = "<group>"; };
+		4A9028FA25022BEF005AAAF1 /* ThematicsPullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThematicsPullViewController.swift; sourceTree = "<group>"; };
+		4A9028FB25022BEF005AAAF1 /* ThematicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThematicsViewController.swift; sourceTree = "<group>"; };
+		4AA2AE092362DD6F00E6566E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4AA2AE0A2362DD6F00E6566E /* Bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
+		4AA2AE0D2362DD6F00E6566E /* TagManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagManager.swift; sourceTree = "<group>"; };
+		4AA2AE0E2362DD6F00E6566E /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		4AA2AE102362DD6F00E6566E /* ScreenType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenType.swift; sourceTree = "<group>"; };
+		4AA2AE112362DD6F00E6566E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4AA2AE122362DD6F00E6566E /* style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = style.json; sourceTree = "<group>"; };
+		4AA2AE132362DD6F00E6566E /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		4AA2AE152362DD6F00E6566E /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4AA2AE172362DD6F00E6566E /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Main.strings; sourceTree = "<group>"; };
+		4AA2AE182362DD6F00E6566E /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4AA2AE1B2362DD6F00E6566E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4AA2AE1D2362DD6F00E6566E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4AA2AE2B2362DD6F00E6566E /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		4AA2AE2C2362DD6F00E6566E /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		4AA2AE2E2362DD6F00E6566E /* KingfisherSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KingfisherSource.swift; sourceTree = "<group>"; };
+		4AA2AE302362DD6F00E6566E /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
+		4AA2AE312362DD6F00E6566E /* RxCLLocationManagerDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxCLLocationManagerDelegateProxy.swift; sourceTree = "<group>"; };
+		4AA2AE332362DD6F00E6566E /* GMSMapView+ClusterKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GMSMapView+ClusterKit.m"; sourceTree = "<group>"; };
+		4AA2AE352362DD6F00E6566E /* CKGeoPointOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKGeoPointOperation.m; sourceTree = "<group>"; };
+		4AA2AE362362DD6F00E6566E /* stations.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stations.geojson; sourceTree = "<group>"; };
+		4AA2AE372362DD6F00E6566E /* ExampleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleData.h; sourceTree = "<group>"; };
+		4AA2AE382362DD6F00E6566E /* CKGeoPointOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKGeoPointOperation.h; sourceTree = "<group>"; };
+		4AA2AE392362DD6F00E6566E /* random.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = random.geojson; sourceTree = "<group>"; };
+		4AA2AE3A2362DD6F00E6566E /* GMSMapView+ClusterKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMSMapView+ClusterKit.h"; sourceTree = "<group>"; };
+		4AA2AE3B2362DD6F00E6566E /* ExampleData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ExampleData.framework; sourceTree = "<group>"; };
+		4AA2AE3C2362DD6F00E6566E /* MapUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapUtil.swift; sourceTree = "<group>"; };
+		4AA2AE3D2362DD6F00E6566E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4AA2AE402362DD6F00E6566E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		4AA2AE432362DD6F00E6566E /* AlignedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlignedLabel.swift; sourceTree = "<group>"; };
+		4AA2AE442362DD6F00E6566E /* TagButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
+		4AA2AE452362DD6F00E6566E /* ScreenTypeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenTypeButton.swift; sourceTree = "<group>"; };
+		4AA2AE462362DD6F00E6566E /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		4AA2AE472362DD6F00E6566E /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
+		4AA2AE4A2362DD6F00E6566E /* PlaceDetailGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailGalleryViewController.swift; sourceTree = "<group>"; };
+		4AA2AE4B2362DD6F00E6566E /* PlaceDetailGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		4AA2AE4D2362DD6F00E6566E /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
+		4AA2AE512362DD6F00E6566E /* 18_PBK_mapa-JSON_v02.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "18_PBK_mapa-JSON_v02.json"; sourceTree = "<group>"; };
+		4AA2AE542362DD6F00E6566E /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		4AA2AE552362DD6F00E6566E /* PlacesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesService.swift; sourceTree = "<group>"; };
+		4AA2AE8B2362DE0F00E6566E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		4AB9DEB623BA852A00C01571 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4ABAB86D236B08FB00BA82F9 /* PlaceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceView.xib; sourceTree = "<group>"; };
+		4ABAB86F236B09AD00BA82F9 /* PlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
+		4ACA10BD20BC40A600812726 /* Archeologie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Archeologie.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ADA6EC92370464900E2363F /* TagsRes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsRes.swift; sourceTree = "<group>"; };
+		4AE4990424F5595F00EE4526 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../accolade-ios/accolade/PROD/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4AE717312369845F00833E2E /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		4AEB2308250225F400959001 /* map-style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "map-style.json"; sourceTree = "<group>"; };
+		4AFFA5F924F53C6800797702 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4AFFA5FA24F53C6800797702 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		4AFFA5FB24F53C6800797702 /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
+		4AFFA5FC24F53C6800797702 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		4AFFA5FD24F53C6800797702 /* TextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		4AFFA5FE24F53C6800797702 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		4AFFA5FF24F53C6800797702 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		4AFFA60024F53C6800797702 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		4AFFA60124F53C6800797702 /* Numbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Numbers.swift; sourceTree = "<group>"; };
+		4AFFA60224F53C6800797702 /* Triangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
+		4AFFA60F24F53E1500797702 /* StackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
+		4AFFA61024F53E1500797702 /* Number.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
+		4AFFA61124F53E1500797702 /* ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
+		4AFFA61324F53E1500797702 /* PanExUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanExUtil.swift; sourceTree = "<group>"; };
+		4AFFA61424F53E1500797702 /* PullSwipeExUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullSwipeExUtil.swift; sourceTree = "<group>"; };
+		4AFFA61524F53E1500797702 /* ScrollViewExUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewExUtil.swift; sourceTree = "<group>"; };
+		4AFFA61724F53E1500797702 /* CLLocationCoordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate.swift; sourceTree = "<group>"; };
+		4AFFA62324F53FC000797702 /* PlaceSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceSection.swift; sourceTree = "<group>"; };
+		4AFFA62524F5404300797702 /* PlaceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCollectionViewCell.swift; sourceTree = "<group>"; };
+		4AFFA62824F5453100797702 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		4AFFA62924F5453100797702 /* Locations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
+		4AFFA62A24F5453100797702 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		4AFFA62B24F5453100797702 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		4AFFA62D24F5453100797702 /* Ar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ar.swift; sourceTree = "<group>"; };
+		4AFFA63524F5458800797702 /* Thematics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thematics.swift; sourceTree = "<group>"; };
+		4AFFA63724F5458800797702 /* Thematic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thematic.swift; sourceTree = "<group>"; };
+		A3CCE81D12BA82C1B290C11B /* Pods_Archeologie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Archeologie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBEB3C8A69A56C41BD998000 /* Pods-Archeologie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Archeologie.release.xcconfig"; path = "Pods/Target Support Files/Pods-Archeologie/Pods-Archeologie.release.xcconfig"; sourceTree = "<group>"; };
+		E1E9A3FC00CA92D3DB1819E0 /* Pods-MSMT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSMT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MSMT/Pods-MSMT.debug.xcconfig"; sourceTree = "<group>"; };
+		F57DBA0D60D894CCCEE3FCA6 /* Pods-PrahaBrutalneKrasna.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrahaBrutalneKrasna.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PrahaBrutalneKrasna/Pods-PrahaBrutalneKrasna.debug.xcconfig"; sourceTree = "<group>"; };
+		F80FB157049FC07179E45F8E /* Pods-PrahaBrutalneKrasna.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrahaBrutalneKrasna.release.xcconfig"; path = "Pods/Target Support Files/Pods-PrahaBrutalneKrasna/Pods-PrahaBrutalneKrasna.release.xcconfig"; sourceTree = "<group>"; };
+		FAE1E648D9B8B9A3385E6341 /* Pods-Archeologie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Archeologie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Archeologie/Pods-Archeologie.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4ACA10BA20BC40A600812726 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92883C149322C5E45ACCE7A7 /* Pods_Archeologie.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		11BB738D75986521ABFAD574 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F57DBA0D60D894CCCEE3FCA6 /* Pods-PrahaBrutalneKrasna.debug.xcconfig */,
+				F80FB157049FC07179E45F8E /* Pods-PrahaBrutalneKrasna.release.xcconfig */,
+				E1E9A3FC00CA92D3DB1819E0 /* Pods-MSMT.debug.xcconfig */,
+				14350762014BF6331F4BB81C /* Pods-MSMT.release.xcconfig */,
+				FAE1E648D9B8B9A3385E6341 /* Pods-Archeologie.debug.xcconfig */,
+				BBEB3C8A69A56C41BD998000 /* Pods-Archeologie.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4A9028F625022BEF005AAAF1 /* Locations */ = {
+			isa = PBXGroup;
+			children = (
+				4A9028F725022BEF005AAAF1 /* LocationsViewController.swift */,
+				4A9028F825022BEF005AAAF1 /* LocationsPullViewController.swift */,
+			);
+			path = Locations;
+			sourceTree = "<group>";
+		};
+		4A9028F925022BEF005AAAF1 /* Thematics */ = {
+			isa = PBXGroup;
+			children = (
+				4A9028FA25022BEF005AAAF1 /* ThematicsPullViewController.swift */,
+				4A9028FB25022BEF005AAAF1 /* ThematicsViewController.swift */,
+				4A1999F0250233D400E8D5E8 /* ThematicsCreditsViewController.swift */,
+			);
+			path = Thematics;
+			sourceTree = "<group>";
+		};
+		4AA2AE072362DD6F00E6566E /* Archeologie */ = {
+			isa = PBXGroup;
+			children = (
+				4AA2AE082362DD6F00E6566E /* Localizable.strings */,
+				4AA2AE0A2362DD6F00E6566E /* Bridging.h */,
+				4AA2AE0F2362DD6F00E6566E /* Enums */,
+				4AA2AE0C2362DD6F00E6566E /* Managers */,
+				4AFFA60D24F53E1500797702 /* Extensions */,
+				4AFFA5F824F53C6800797702 /* Convenience */,
+				4AA2AE112362DD6F00E6566E /* Assets.xcassets */,
+				4AA2AE122362DD6F00E6566E /* style.json */,
+				4AA2AE132362DD6F00E6566E /* Config.swift */,
+				4AA2AE142362DD6F00E6566E /* LaunchScreen.strings */,
+				4AA2AE162362DD6F00E6566E /* Main.strings */,
+				4AA2AE1A2362DD6F00E6566E /* LaunchScreen.storyboard */,
+				4AA2AE1C2362DD6F00E6566E /* Main.storyboard */,
+				4AA2AE282362DD6F00E6566E /* Model */,
+				4AA2AE2D2362DD6F00E6566E /* External */,
+				4AA2AE3D2362DD6F00E6566E /* AppDelegate.swift */,
+				4AA2AE3E2362DD6F00E6566E /* Views */,
+				4A1999F225023F7300E8D5E8 /* map.geojson */,
+				4AA2AE512362DD6F00E6566E /* 18_PBK_mapa-JSON_v02.json */,
+				4AEB2308250225F400959001 /* map-style.json */,
+				4AE4990424F5595F00EE4526 /* GoogleService-Info.plist */,
+				4AB9DEB623BA852A00C01571 /* Info.plist */,
+				4AA2AE532362DD6F00E6566E /* Services */,
+			);
+			path = Archeologie;
+			sourceTree = "<group>";
+		};
+		4AA2AE0C2362DD6F00E6566E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4AA2AE0D2362DD6F00E6566E /* TagManager.swift */,
+				4AA2AE0E2362DD6F00E6566E /* LocationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		4AA2AE0F2362DD6F00E6566E /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				4AA2AE102362DD6F00E6566E /* ScreenType.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		4AA2AE282362DD6F00E6566E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4AFFA63424F5458800797702 /* Thematics */,
+				4AFFA62724F5453100797702 /* Locations */,
+				4AFFA62324F53FC000797702 /* PlaceSection.swift */,
+				4AE717312369845F00833E2E /* Place.swift */,
+				4AA2AE2B2362DD6F00E6566E /* Photo.swift */,
+				4AA2AE2C2362DD6F00E6566E /* Tag.swift */,
+				4ADA6EC92370464900E2363F /* TagsRes.swift */,
+				4A45297623702635006372D0 /* UpdatedRes.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4AA2AE2D2362DD6F00E6566E /* External */ = {
+			isa = PBXGroup;
+			children = (
+				4AA2AE2E2362DD6F00E6566E /* KingfisherSource.swift */,
+				4AA2AE2F2362DD6F00E6566E /* RxLocationManager */,
+				4AA2AE322362DD6F00E6566E /* GoogleMaps */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		4AA2AE2F2362DD6F00E6566E /* RxLocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				4AA2AE302362DD6F00E6566E /* CLLocationManager+Rx.swift */,
+				4AA2AE312362DD6F00E6566E /* RxCLLocationManagerDelegateProxy.swift */,
+			);
+			path = RxLocationManager;
+			sourceTree = "<group>";
+		};
+		4AA2AE322362DD6F00E6566E /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				4AA2AE332362DD6F00E6566E /* GMSMapView+ClusterKit.m */,
+				4AA2AE342362DD6F00E6566E /* Example-data */,
+				4AA2AE3A2362DD6F00E6566E /* GMSMapView+ClusterKit.h */,
+				4AA2AE3B2362DD6F00E6566E /* ExampleData.framework */,
+				4AA2AE3C2362DD6F00E6566E /* MapUtil.swift */,
+			);
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		4AA2AE342362DD6F00E6566E /* Example-data */ = {
+			isa = PBXGroup;
+			children = (
+				4AA2AE352362DD6F00E6566E /* CKGeoPointOperation.m */,
+				4AA2AE362362DD6F00E6566E /* stations.geojson */,
+				4AA2AE372362DD6F00E6566E /* ExampleData.h */,
+				4AA2AE382362DD6F00E6566E /* CKGeoPointOperation.h */,
+				4AA2AE392362DD6F00E6566E /* random.geojson */,
+			);
+			path = "Example-data";
+			sourceTree = "<group>";
+		};
+		4AA2AE3E2362DD6F00E6566E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4AFFA62524F5404300797702 /* PlaceCollectionViewCell.swift */,
+				4A81426524FFD78A00476B4A /* PlaceCollectionViewCell.xib */,
+				4AA2AE402362DD6F00E6566E /* BaseViewController.swift */,
+				4AA2AE422362DD6F00E6566E /* Components */,
+				4A9028F625022BEF005AAAF1 /* Locations */,
+				4A9028F925022BEF005AAAF1 /* Thematics */,
+				4AA2AE482362DD6F00E6566E /* PlaceDetail */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4AA2AE422362DD6F00E6566E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4ABAB86D236B08FB00BA82F9 /* PlaceView.xib */,
+				4A8142692500DB5F00476B4A /* ArchFloatingPanelLayout.swift */,
+				4ABAB86F236B09AD00BA82F9 /* PlaceView.swift */,
+				4AA2AE432362DD6F00E6566E /* AlignedLabel.swift */,
+				4AA2AE442362DD6F00E6566E /* TagButton.swift */,
+				4AA2AE452362DD6F00E6566E /* ScreenTypeButton.swift */,
+				4AA2AE462362DD6F00E6566E /* TagView.swift */,
+				4AA2AE472362DD6F00E6566E /* Annotation.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		4AA2AE482362DD6F00E6566E /* PlaceDetail */ = {
+			isa = PBXGroup;
+			children = (
+				4AA2AE492362DD6F00E6566E /* Gallery */,
+				4AA2AE4D2362DD6F00E6566E /* PlaceDetailViewController.swift */,
+			);
+			path = PlaceDetail;
+			sourceTree = "<group>";
+		};
+		4AA2AE492362DD6F00E6566E /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				4AA2AE4A2362DD6F00E6566E /* PlaceDetailGalleryViewController.swift */,
+				4AA2AE4B2362DD6F00E6566E /* PlaceDetailGalleryCollectionViewCell.swift */,
+			);
+			path = Gallery;
+			sourceTree = "<group>";
+		};
+		4AA2AE532362DD6F00E6566E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4AA2AE542362DD6F00E6566E /* Service.swift */,
+				4AA2AE552362DD6F00E6566E /* PlacesService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4ACA10B420BC40A600812726 = {
+			isa = PBXGroup;
+			children = (
+				4AA2AE8B2362DE0F00E6566E /* Default-568h@2x.png */,
+				4AA2AE072362DD6F00E6566E /* Archeologie */,
+				4ACA10BE20BC40A600812726 /* Products */,
+				11BB738D75986521ABFAD574 /* Pods */,
+				BF5419B32CB0CB8EC9FFD545 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4ACA10BE20BC40A600812726 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4ACA10BD20BC40A600812726 /* Archeologie.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4AFFA5F824F53C6800797702 /* Convenience */ = {
+			isa = PBXGroup;
+			children = (
+				4AFFA61024F53E1500797702 /* Number.swift */,
+				4AFFA60F24F53E1500797702 /* StackView.swift */,
+				4AFFA5F924F53C6800797702 /* ViewController.swift */,
+				4AFFA61124F53E1500797702 /* ScrollView.swift */,
+				4AFFA5FA24F53C6800797702 /* View.swift */,
+				4AFFA5FB24F53C6800797702 /* Delay.swift */,
+				4AFFA5FC24F53C6800797702 /* String.swift */,
+				4AFFA5FD24F53C6800797702 /* TextView.swift */,
+				4AFFA5FE24F53C6800797702 /* Map.swift */,
+				4AFFA5FF24F53C6800797702 /* Button.swift */,
+				4AFFA60024F53C6800797702 /* Color.swift */,
+				4AFFA60124F53C6800797702 /* Numbers.swift */,
+				4AFFA60224F53C6800797702 /* Triangle.swift */,
+			);
+			path = Convenience;
+			sourceTree = "<group>";
+		};
+		4AFFA60D24F53E1500797702 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4AFFA61224F53E1500797702 /* PullExtension */,
+				4AFFA61724F53E1500797702 /* CLLocationCoordinate.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4AFFA61224F53E1500797702 /* PullExtension */ = {
+			isa = PBXGroup;
+			children = (
+				4AFFA61324F53E1500797702 /* PanExUtil.swift */,
+				4AFFA61424F53E1500797702 /* PullSwipeExUtil.swift */,
+				4AFFA61524F53E1500797702 /* ScrollViewExUtil.swift */,
+			);
+			path = PullExtension;
+			sourceTree = "<group>";
+		};
+		4AFFA62724F5453100797702 /* Locations */ = {
+			isa = PBXGroup;
+			children = (
+				4AFFA62824F5453100797702 /* Location.swift */,
+				4AFFA62924F5453100797702 /* Locations.swift */,
+				4AFFA62A24F5453100797702 /* Model.swift */,
+				4AFFA62B24F5453100797702 /* Image.swift */,
+				4AFFA62D24F5453100797702 /* Ar.swift */,
+			);
+			path = Locations;
+			sourceTree = "<group>";
+		};
+		4AFFA63424F5458800797702 /* Thematics */ = {
+			isa = PBXGroup;
+			children = (
+				4AFFA63524F5458800797702 /* Thematics.swift */,
+				4AFFA63724F5458800797702 /* Thematic.swift */,
+			);
+			path = Thematics;
+			sourceTree = "<group>";
+		};
+		BF5419B32CB0CB8EC9FFD545 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3CCE81D12BA82C1B290C11B /* Pods_Archeologie.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4ACA10BC20BC40A600812726 /* Archeologie */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4ACA10CF20BC40A800812726 /* Build configuration list for PBXNativeTarget "Archeologie" */;
+			buildPhases = (
+				68CCB8CEA4346D09CD593F52 /* [CP] Check Pods Manifest.lock */,
+				4ACA10B920BC40A600812726 /* Sources */,
+				4ACA10BA20BC40A600812726 /* Frameworks */,
+				4ACA10BB20BC40A600812726 /* Resources */,
+				04B0D7E141D2CDE5C4FAA2BB /* [CP] Embed Pods Frameworks */,
+				783176017192C3B743515679 /* [CP] Copy Pods Resources */,
+				4A5EF97C21C250E7008635AD /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Archeologie;
+			productName = ModernArchitecture;
+			productReference = 4ACA10BD20BC40A600812726 /* Archeologie.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4ACA10B520BC40A600812726 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 1200;
+				ORGANIZATIONNAME = "Matěj Novák";
+				TargetAttributes = {
+					4ACA10BC20BC40A600812726 = {
+						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1160;
+					};
+				};
+			};
+			buildConfigurationList = 4ACA10B820BC40A600812726 /* Build configuration list for PBXProject "Archeologie" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				cs,
+			);
+			mainGroup = 4ACA10B420BC40A600812726;
+			productRefGroup = 4ACA10BE20BC40A600812726 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4ACA10BC20BC40A600812726 /* Archeologie */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4ACA10BB20BC40A600812726 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AA2AE872362DD6F00E6566E /* 18_PBK_mapa-JSON_v02.json in Resources */,
+				4AA2AE5C2362DD6F00E6566E /* style.json in Resources */,
+				4A1999F325023F7300E8D5E8 /* map.geojson in Resources */,
+				4AA2AE5B2362DD6F00E6566E /* Assets.xcassets in Resources */,
+				4AA2AE752362DD6F00E6566E /* random.geojson in Resources */,
+				4AA2AE562362DD6F00E6566E /* Localizable.strings in Resources */,
+				4ABAB86E236B08FB00BA82F9 /* PlaceView.xib in Resources */,
+				4AA2AE742362DD6F00E6566E /* stations.geojson in Resources */,
+				4AA2AE622362DD6F00E6566E /* Main.storyboard in Resources */,
+				4AA2AE5E2362DD6F00E6566E /* LaunchScreen.strings in Resources */,
+				4AA2AE8C2362DE0F00E6566E /* Default-568h@2x.png in Resources */,
+				4AA2AE612362DD6F00E6566E /* LaunchScreen.storyboard in Resources */,
+				4AA2AE5F2362DD6F00E6566E /* Main.strings in Resources */,
+				4AEB2309250225F500959001 /* map-style.json in Resources */,
+				4AE4990524F5595F00EE4526 /* GoogleService-Info.plist in Resources */,
+				4A81426624FFD78A00476B4A /* PlaceCollectionViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04B0D7E141D2CDE5C4FAA2BB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Archeologie/Pods-Archeologie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Archeologie/Pods-Archeologie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Archeologie/Pods-Archeologie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A5EF97C21C250E7008635AD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
+		};
+		68CCB8CEA4346D09CD593F52 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Archeologie-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		783176017192C3B743515679 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Archeologie/Pods-Archeologie-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Archeologie/Pods-Archeologie-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Archeologie/Pods-Archeologie-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4ACA10B920BC40A600812726 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AFFA61E24F53E1500797702 /* PullSwipeExUtil.swift in Sources */,
+				4AFFA61A24F53E1500797702 /* StackView.swift in Sources */,
+				4A9028FF25022BF0005AAAF1 /* ThematicsViewController.swift in Sources */,
+				4AA2AE782362DD6F00E6566E /* AppDelegate.swift in Sources */,
+				4AFFA62624F5404300797702 /* PlaceCollectionViewCell.swift in Sources */,
+				4AFFA60C24F53C6800797702 /* Triangle.swift in Sources */,
+				4AA2AE6E2362DD6F00E6566E /* Tag.swift in Sources */,
+				4A9028FE25022BF0005AAAF1 /* ThematicsPullViewController.swift in Sources */,
+				4AA2AE822362DD6F00E6566E /* PlaceDetailGalleryCollectionViewCell.swift in Sources */,
+				4AA2AE6D2362DD6F00E6566E /* Photo.swift in Sources */,
+				4AFFA61C24F53E1500797702 /* ScrollView.swift in Sources */,
+				4AFFA61F24F53E1500797702 /* ScrollViewExUtil.swift in Sources */,
+				4AA2AE7F2362DD6F00E6566E /* TagView.swift in Sources */,
+				4AA2AE582362DD6F00E6566E /* TagManager.swift in Sources */,
+				4AA2AE712362DD6F00E6566E /* RxCLLocationManagerDelegateProxy.swift in Sources */,
+				4AA2AE802362DD6F00E6566E /* Annotation.swift in Sources */,
+				4AFFA60424F53C6800797702 /* View.swift in Sources */,
+				4AFFA60A24F53C6800797702 /* Color.swift in Sources */,
+				4AA2AE842362DD6F00E6566E /* PlaceDetailViewController.swift in Sources */,
+				4AFFA61D24F53E1500797702 /* PanExUtil.swift in Sources */,
+				4AA2AE7C2362DD6F00E6566E /* AlignedLabel.swift in Sources */,
+				4AA2AE892362DD6F00E6566E /* Service.swift in Sources */,
+				4AA2AE5A2362DD6F00E6566E /* ScreenType.swift in Sources */,
+				4AE717332369845F00833E2E /* Place.swift in Sources */,
+				4AFFA63824F5458800797702 /* Thematics.swift in Sources */,
+				4ADA6ECA2370464900E2363F /* TagsRes.swift in Sources */,
+				4AA2AE812362DD6F00E6566E /* PlaceDetailGalleryViewController.swift in Sources */,
+				4AA2AE5D2362DD6F00E6566E /* Config.swift in Sources */,
+				4AFFA63324F5453100797702 /* Ar.swift in Sources */,
+				4AA2AE6F2362DD6F00E6566E /* KingfisherSource.swift in Sources */,
+				4A1999F1250233D400E8D5E8 /* ThematicsCreditsViewController.swift in Sources */,
+				4AA2AE7A2362DD6F00E6566E /* BaseViewController.swift in Sources */,
+				4AA2AE7D2362DD6F00E6566E /* TagButton.swift in Sources */,
+				4AFFA60724F53C6800797702 /* TextView.swift in Sources */,
+				4A9028FD25022BF0005AAAF1 /* LocationsPullViewController.swift in Sources */,
+				4AFFA60324F53C6800797702 /* ViewController.swift in Sources */,
+				4AA2AE7E2362DD6F00E6566E /* ScreenTypeButton.swift in Sources */,
+				4AFFA61B24F53E1500797702 /* Number.swift in Sources */,
+				4ABAB870236B09AD00BA82F9 /* PlaceView.swift in Sources */,
+				4A9028FC25022BF0005AAAF1 /* LocationsViewController.swift in Sources */,
+				4AFFA62124F53E1500797702 /* CLLocationCoordinate.swift in Sources */,
+				4AFFA62424F53FC000797702 /* PlaceSection.swift in Sources */,
+				4AFFA63024F5453100797702 /* Model.swift in Sources */,
+				4AFFA60824F53C6800797702 /* Map.swift in Sources */,
+				4AA2AE772362DD6F00E6566E /* MapUtil.swift in Sources */,
+				4AFFA62F24F5453100797702 /* Locations.swift in Sources */,
+				4AFFA63A24F5458800797702 /* Thematic.swift in Sources */,
+				4AA2AE702362DD6F00E6566E /* CLLocationManager+Rx.swift in Sources */,
+				4AFFA60524F53C6800797702 /* Delay.swift in Sources */,
+				4AA2AE8A2362DD6F00E6566E /* PlacesService.swift in Sources */,
+				4A81426A2500DB5F00476B4A /* ArchFloatingPanelLayout.swift in Sources */,
+				4AFFA63124F5453100797702 /* Image.swift in Sources */,
+				4AFFA60B24F53C6800797702 /* Numbers.swift in Sources */,
+				4AFFA60924F53C6800797702 /* Button.swift in Sources */,
+				4AA2AE732362DD6F00E6566E /* CKGeoPointOperation.m in Sources */,
+				4A45297723702635006372D0 /* UpdatedRes.swift in Sources */,
+				4AFFA62E24F5453100797702 /* Location.swift in Sources */,
+				4AFFA60624F53C6800797702 /* String.swift in Sources */,
+				4AA2AE592362DD6F00E6566E /* LocationManager.swift in Sources */,
+				4AA2AE722362DD6F00E6566E /* GMSMapView+ClusterKit.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4AA2AE082362DD6F00E6566E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AA2AE092362DD6F00E6566E /* en */,
+				4AA2AE182362DD6F00E6566E /* cs */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		4AA2AE142362DD6F00E6566E /* LaunchScreen.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AA2AE152362DD6F00E6566E /* cs */,
+			);
+			name = LaunchScreen.strings;
+			sourceTree = "<group>";
+		};
+		4AA2AE162362DD6F00E6566E /* Main.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AA2AE172362DD6F00E6566E /* cs */,
+			);
+			name = Main.strings;
+			sourceTree = "<group>";
+		};
+		4AA2AE1A2362DD6F00E6566E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AA2AE1B2362DD6F00E6566E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4AA2AE1C2362DD6F00E6566E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AA2AE1D2362DD6F00E6566E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4ACA10CD20BC40A800812726 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		4ACA10CE20BC40A800812726 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4ACA10D020BC40A800812726 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAE1E648D9B8B9A3385E6341 /* Pods-Archeologie.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V9P485GC85;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Archeologie/External/GoogleMaps",
+				);
+				INFOPLIST_FILE = Archeologie/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cz.visualio.archeologie;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		4ACA10D120BC40A800812726 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBEB3C8A69A56C41BD998000 /* Pods-Archeologie.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V9P485GC85;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Archeologie/External/GoogleMaps",
+				);
+				INFOPLIST_FILE = Archeologie/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = cz.visualio.archeologie;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/Bridging.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4ACA10B820BC40A600812726 /* Build configuration list for PBXProject "Archeologie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4ACA10CD20BC40A800812726 /* Debug */,
+				4ACA10CE20BC40A800812726 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4ACA10CF20BC40A800812726 /* Build configuration list for PBXNativeTarget "Archeologie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4ACA10D020BC40A800812726 /* Debug */,
+				4ACA10D120BC40A800812726 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4ACA10B520BC40A600812726 /* Project object */;
+}

@@ -1,13 +1,11 @@
 framework module FirebasePerformance {
-  umbrella header "FirebasePerformance.h"
-  export *
-  module * { export *}
-  link "c++"
-  link "sqlite3"
-  link "z"
+umbrella header "FirebasePerformance.h"
+export *
+module * { export * }
   link framework "CoreTelephony"
-  link framework "QuartzCore"
+  link framework "Foundation"
   link framework "Security"
-  link framework "StoreKit"
   link framework "SystemConfiguration"
-  link framework "UIKit"}
+  link framework "UIKit"
+  link "z"
+}

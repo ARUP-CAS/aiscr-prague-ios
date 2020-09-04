@@ -1,3 +1,17 @@
+// Copyright 2020 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 #import <Foundation/Foundation.h>
 
 #import "FIRPerformanceAttributable.h"
@@ -28,33 +42,6 @@ NS_SWIFT_NAME(Trace)
  */
 - (void)stop;
 
-/**
- * Increments the counter for the provided counter name by 1. If it is a new counter name, the
- * counter value will be initialized to 1. Does nothing if the trace has not been started or has
- * already been stopped.
- *
- * Note: This API has been deprecated. Please use -incrementMetric:byInt: instead.
- *
- * @param counterName The name of the counter to increment.
- */
-- (void)incrementCounterNamed:(nonnull NSString *)counterName
-    NS_SWIFT_NAME(incrementCounter(named:))
-    DEPRECATED_MSG_ATTRIBUTE("Please use -incrementMetric:byInt: instead.");
-
-/**
- * Increments the counter for the provided counter name with the provided value. If it is a new
- * counter name, the counter value will be initialized to the value. Does nothing if the trace has
- * not been started or has already been stopped.
- *
- * Note: This API has been deprecated. Please use -incrementMetric:byInt: instead.
- *
- * @param counterName The name of the counter to increment.
- * @param incrementValue The value the counter would be incremented with.
- */
-- (void)incrementCounterNamed:(nonnull NSString *)counterName by:(NSInteger)incrementValue
-    NS_SWIFT_NAME(incrementCounter(named:by:))
-    DEPRECATED_MSG_ATTRIBUTE("Please use -incrementMetric:byInt: instead.");
-
 #pragma mark - Metrics API
 
 /**
@@ -65,8 +52,8 @@ NS_SWIFT_NAME(Trace)
  * @param metricName The name of the metric to increment.
  * @param incrementValue The value to increment the metric by.
  */
-- (void)incrementMetric:(nonnull NSString *)metricName byInt:(int64_t)incrementValue
-    NS_SWIFT_NAME(incrementMetric(_:by:));
+- (void)incrementMetric:(nonnull NSString *)metricName
+                  byInt:(int64_t)incrementValue NS_SWIFT_NAME(incrementMetric(_:by:));
 
 /**
  * Gets the value of the metric for the provided metric name. If the metric doesn't exist, a 0 is
@@ -75,8 +62,7 @@ NS_SWIFT_NAME(Trace)
  * @param metricName The name of metric whose value to get.
  * @return The value of the given metric or 0 if it hasn't yet been set.
  */
-- (int64_t)valueForIntMetric:(nonnull NSString *)metricName
-    NS_SWIFT_NAME(valueForMetric(_:));
+- (int64_t)valueForIntMetric:(nonnull NSString *)metricName NS_SWIFT_NAME(valueForMetric(_:));
 
 /**
  * Sets the value of the metric for the provided metric name to the provided value. Does nothing if
@@ -85,7 +71,7 @@ NS_SWIFT_NAME(Trace)
  * @param metricName The name of the metric to set.
  * @param value The value to set the metric to.
  */
-- (void)setIntValue:(int64_t)value forMetric:(nonnull NSString *)metricName
-    NS_SWIFT_NAME(setValue(_:forMetric:));
+- (void)setIntValue:(int64_t)value
+          forMetric:(nonnull NSString *)metricName NS_SWIFT_NAME(setValue(_:forMetric:));
 
 @end

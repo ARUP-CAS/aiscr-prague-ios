@@ -1,0 +1,6 @@
+framework module ExampleData {
+  umbrella header "ExampleData.h"
+
+  export *
+  module * { export * }
+}

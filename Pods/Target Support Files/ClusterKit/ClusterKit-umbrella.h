@@ -10,15 +10,16 @@
 #endif
 #endif
 
-#import "ClusterKit.h"
-#import "CKClusterAlgorithm.h"
-#import "CKGridBasedAlgorithm.h"
-#import "CKNonHierarchicalDistanceBasedAlgorithm.h"
-#import "CKCluster.h"
-#import "CKClusterManager.h"
-#import "CKMap.h"
 #import "CKAnnotationTree.h"
+#import "CKCluster.h"
+#import "CKClusterAlgorithm.h"
+#import "CKClusterManager.h"
+#import "CKGridBasedAlgorithm.h"
+#import "CKMap.h"
+#import "CKNonHierarchicalDistanceBasedAlgorithm.h"
 #import "CKQuadTree.h"
+#import "ClusterKit.h"
+#import "MKMapView+ClusterKit.h"
 
 FOUNDATION_EXPORT double ClusterKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char ClusterKitVersionString[];

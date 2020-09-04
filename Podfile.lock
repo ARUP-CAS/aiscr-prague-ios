@@ -1,223 +1,281 @@
 PODS:
-  - Alamofire (4.7.3)
-  - ClusterKit (0.3.5):
-    - ClusterKit/Core (= 0.3.5)
-  - ClusterKit/Core (0.3.5)
+  - Alamofire (5.2.2)
+  - ClusterKit (0.5.0):
+    - ClusterKit/Core (= 0.5.0)
+  - ClusterKit/Core (0.5.0)
   - Crashlytics (3.12.0):
     - Fabric (~> 1.9.0)
-  - Differentiator (3.1.0)
+  - Differentiator (4.0.1)
+  - DPPickerManager (1.0.2)
   - Fabric (1.9.0)
-  - Firebase (5.12.0):
-    - Firebase/Core (= 5.12.0)
-  - Firebase/Core (5.12.0):
-    - Firebase/CoreOnly
-    - FirebaseAnalytics (= 5.3.0)
-  - Firebase/CoreOnly (5.12.0):
-    - FirebaseCore (= 5.1.7)
-  - Firebase/Performance (5.12.0):
+  - Firebase (6.31.1):
+    - Firebase/Core (= 6.31.1)
+  - Firebase/Analytics (6.31.1):
     - Firebase/Core
-    - FirebasePerformance (= 2.2.1)
-  - FirebaseABTesting (2.0.0):
-    - FirebaseCore (~> 5.0)
-    - Protobuf (~> 3.5)
-  - FirebaseAnalytics (5.3.0):
-    - FirebaseCore (~> 5.1)
-    - FirebaseInstanceID (~> 3.3)
-    - GoogleAppMeasurement (~> 5.3)
-    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
-    - GoogleUtilities/MethodSwizzler (~> 5.2)
-    - GoogleUtilities/Network (~> 5.2)
-    - "GoogleUtilities/NSData+zlib (~> 5.2)"
-    - nanopb (~> 0.3)
-  - FirebaseCore (5.1.7):
-    - GoogleUtilities/Logger (~> 5.2)
-  - FirebaseInstanceID (3.3.0):
-    - FirebaseCore (~> 5.1)
-    - GoogleUtilities/Environment (~> 5.3)
-    - GoogleUtilities/UserDefaults (~> 5.3)
-  - FirebasePerformance (2.2.1):
-    - FirebaseAnalytics (~> 5.3)
-    - FirebaseInstanceID (~> 3.3)
-    - FirebaseRemoteConfig (~> 3.1)
+  - Firebase/Core (6.31.1):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 6.8.0)
+  - Firebase/CoreOnly (6.31.1):
+    - FirebaseCore (= 6.10.1)
+  - Firebase/Performance (6.31.1):
+    - Firebase/CoreOnly
+    - FirebasePerformance (~> 3.3.0)
+  - FirebaseABTesting (4.2.0):
+    - FirebaseCore (~> 6.10)
+  - FirebaseAnalytics (6.8.0):
+    - FirebaseCore (~> 6.10)
+    - FirebaseInstallations (~> 1.6)
+    - GoogleAppMeasurement (= 6.8.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
+    - GoogleUtilities/MethodSwizzler (~> 6.7)
+    - GoogleUtilities/Network (~> 6.7)
+    - "GoogleUtilities/NSData+zlib (~> 6.7)"
+    - nanopb (~> 1.30906.0)
+  - FirebaseCore (6.10.1):
+    - FirebaseCoreDiagnostics (~> 1.6)
+    - GoogleUtilities/Environment (~> 6.7)
+    - GoogleUtilities/Logger (~> 6.7)
+  - FirebaseCoreDiagnostics (1.6.0):
+    - GoogleDataTransport (~> 7.2)
+    - GoogleUtilities/Environment (~> 6.7)
+    - GoogleUtilities/Logger (~> 6.7)
+    - nanopb (~> 1.30906.0)
+  - FirebaseInstallations (1.7.0):
+    - FirebaseCore (~> 6.10)
+    - GoogleUtilities/Environment (~> 6.7)
+    - GoogleUtilities/UserDefaults (~> 6.7)
+    - PromisesObjC (~> 1.2)
+  - FirebasePerformance (3.3.0):
+    - FirebaseCore (~> 6.9)
+    - FirebaseInstallations (~> 1.5)
+    - FirebaseRemoteConfig (~> 4.7)
+    - GoogleDataTransport (~> 7.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-    - GoogleUtilities/ISASwizzler (~> 5.2)
-    - GoogleUtilities/MethodSwizzler (~> 5.2)
+    - GoogleUtilities/Environment (~> 6.2)
+    - GoogleUtilities/ISASwizzler (~> 6.2)
+    - GoogleUtilities/MethodSwizzler (~> 6.2)
     - GTMSessionFetcher/Core (~> 1.1)
-    - Protobuf (~> 3.5)
-  - FirebaseRemoteConfig (3.1.0):
-    - FirebaseABTesting (~> 2.0)
-    - FirebaseAnalytics (~> 5.3)
-    - FirebaseCore (~> 5.1)
-    - FirebaseInstanceID (~> 3.3)
-    - GoogleUtilities/Environment (~> 5.2)
-    - "GoogleUtilities/NSData+zlib (~> 5.2)"
-    - Protobuf (~> 3.5)
+    - Protobuf (~> 3.12)
+  - FirebaseRemoteConfig (4.9.0):
+    - FirebaseABTesting (~> 4.2)
+    - FirebaseCore (~> 6.10)
+    - FirebaseInstallations (~> 1.6)
+    - GoogleUtilities/Environment (~> 6.7)
+    - "GoogleUtilities/NSData+zlib (~> 6.7)"
+  - FloatingPanel (1.7.5)
   - GeoJSONSerialization (0.0.4)
-  - GoogleAppMeasurement (5.3.0):
-    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
-    - GoogleUtilities/MethodSwizzler (~> 5.2)
-    - GoogleUtilities/Network (~> 5.2)
-    - "GoogleUtilities/NSData+zlib (~> 5.2)"
-    - nanopb (~> 0.3)
-  - GoogleMaps (2.7.0):
-    - GoogleMaps/Maps (= 2.7.0)
-  - GoogleMaps/Base (2.7.0)
-  - GoogleMaps/Maps (2.7.0):
+  - Google-Maps-iOS-Utils (3.3.0):
+    - Google-Maps-iOS-Utils/Clustering (= 3.3.0)
+    - Google-Maps-iOS-Utils/Geometry (= 3.3.0)
+    - Google-Maps-iOS-Utils/Heatmap (= 3.3.0)
+    - Google-Maps-iOS-Utils/QuadTree (= 3.3.0)
+    - GoogleMaps
+  - Google-Maps-iOS-Utils/Clustering (3.3.0):
+    - Google-Maps-iOS-Utils/QuadTree
+    - GoogleMaps
+  - Google-Maps-iOS-Utils/Geometry (3.3.0):
+    - GoogleMaps
+  - Google-Maps-iOS-Utils/Heatmap (3.3.0):
+    - Google-Maps-iOS-Utils/QuadTree
+    - GoogleMaps
+  - Google-Maps-iOS-Utils/QuadTree (3.3.0):
+    - GoogleMaps
+  - GoogleAppMeasurement (6.8.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
+    - GoogleUtilities/MethodSwizzler (~> 6.7)
+    - GoogleUtilities/Network (~> 6.7)
+    - "GoogleUtilities/NSData+zlib (~> 6.7)"
+    - nanopb (~> 1.30906.0)
+  - GoogleDataTransport (7.3.0):
+    - nanopb (~> 1.30906.0)
+  - GoogleMaps (3.10.0):
+    - GoogleMaps/Maps (= 3.10.0)
+  - GoogleMaps/Base (3.10.0)
+  - GoogleMaps/Maps (3.10.0):
     - GoogleMaps/Base
-  - GoogleToolboxForMac/Defines (2.2.0)
-  - GoogleToolboxForMac/Logger (2.2.0):
-    - GoogleToolboxForMac/Defines (= 2.2.0)
-  - "GoogleToolboxForMac/NSData+zlib (2.2.0)":
-    - GoogleToolboxForMac/Defines (= 2.2.0)
-  - GoogleUtilities/AppDelegateSwizzler (5.3.5):
+  - GoogleToolboxForMac/Defines (2.2.2)
+  - GoogleToolboxForMac/Logger (2.2.2):
+    - GoogleToolboxForMac/Defines (= 2.2.2)
+  - "GoogleToolboxForMac/NSData+zlib (2.2.2)":
+    - GoogleToolboxForMac/Defines (= 2.2.2)
+  - GoogleUtilities/AppDelegateSwizzler (6.7.2):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (5.3.5)
-  - GoogleUtilities/ISASwizzler (5.3.5)
-  - GoogleUtilities/Logger (5.3.5):
+  - GoogleUtilities/Environment (6.7.2):
+    - PromisesObjC (~> 1.2)
+  - GoogleUtilities/ISASwizzler (6.7.2)
+  - GoogleUtilities/Logger (6.7.2):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (5.3.5):
+  - GoogleUtilities/MethodSwizzler (6.7.2):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (5.3.5):
+  - GoogleUtilities/Network (6.7.2):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (5.3.5)"
-  - GoogleUtilities/Reachability (5.3.5):
+  - "GoogleUtilities/NSData+zlib (6.7.2)"
+  - GoogleUtilities/Reachability (6.7.2):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (5.3.5):
+  - GoogleUtilities/UserDefaults (6.7.2):
     - GoogleUtilities/Logger
-  - GTMSessionFetcher/Core (1.2.1)
-  - Hero (1.4.0)
+  - GTMSessionFetcher/Core (1.4.0)
+  - Hero (1.5.0)
   - KFImageViewer (1.0.0):
     - KFImageViewer/Core (= 1.0.0)
   - KFImageViewer/Core (1.0.0)
-  - Kingfisher (4.10.1)
-  - Moya/Core (11.0.2):
-    - Alamofire (~> 4.1)
-    - Result (~> 3.0)
-  - Moya/RxSwift (11.0.2):
+  - Kingfisher (5.15.0):
+    - Kingfisher/Core (= 5.15.0)
+  - Kingfisher/Core (5.15.0)
+  - LNZCollectionLayouts (1.2.2)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
     - Moya/Core
-    - RxSwift (~> 4.0)
-  - nanopb (0.3.901):
-    - nanopb/decode (= 0.3.901)
-    - nanopb/encode (= 0.3.901)
-  - nanopb/decode (0.3.901)
-  - nanopb/encode (0.3.901)
-  - Protobuf (3.6.1)
-  - Result (3.2.4)
-  - RxAtomic (4.4.0)
-  - RxCocoa (4.4.0):
-    - RxSwift (~> 4.0)
-  - RxDataSources (3.1.0):
-    - Differentiator (~> 3.0)
-    - RxCocoa (~> 4.0)
-    - RxSwift (~> 4.0)
-  - RxGesture (2.1.0):
-    - RxCocoa (~> 4.4.0)
-    - RxSwift (~> 4.4.0)
-  - RxSwift (4.4.0):
-    - RxAtomic (~> 4.4)
-  - SnapKit (4.2.0)
-  - SwiftyJSON (4.2.0)
-  - TestFairy (1.18.0)
+    - RxSwift (~> 5.0)
+  - nanopb (1.30906.0):
+    - nanopb/decode (= 1.30906.0)
+    - nanopb/encode (= 1.30906.0)
+  - nanopb/decode (1.30906.0)
+  - nanopb/encode (1.30906.0)
+  - PromisesObjC (1.2.10)
+  - Protobuf (3.13.0)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxDataSources (4.0.1):
+    - Differentiator (~> 4.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxGesture (3.0.2):
+    - RxCocoa (~> 5.1)
+    - RxSwift (~> 5.1)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
+  - SnapKit (5.0.1)
+  - SwiftyJSON (5.0.0)
   - UIEmptyState (4.0.1)
+  - YouTubePlayer (0.7.2)
 
 DEPENDENCIES:
   - Alamofire
   - ClusterKit
   - Crashlytics (~> 3.12.0)
+  - DPPickerManager
   - Fabric (~> 1.9.0)
   - Firebase
+  - Firebase/Analytics
   - Firebase/Performance
+  - FloatingPanel
   - GeoJSONSerialization
+  - Google-Maps-iOS-Utils
   - GoogleMaps
   - Hero
-  - KFImageViewer
+  - KFImageViewer (from `https://github.com/MRzr/KFImageViewer.git`)
   - Kingfisher
+  - LNZCollectionLayouts
   - Moya/RxSwift
   - RxDataSources
   - RxGesture
   - SnapKit
   - SwiftyJSON
-  - TestFairy
   - UIEmptyState
+  - YouTubePlayer
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
     - ClusterKit
     - Crashlytics
     - Differentiator
+    - DPPickerManager
     - Fabric
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalytics
     - FirebaseCore
-    - FirebaseInstanceID
+    - FirebaseCoreDiagnostics
+    - FirebaseInstallations
     - FirebasePerformance
     - FirebaseRemoteConfig
+    - FloatingPanel
     - GeoJSONSerialization
+    - Google-Maps-iOS-Utils
     - GoogleAppMeasurement
+    - GoogleDataTransport
     - GoogleMaps
     - GoogleToolboxForMac
     - GoogleUtilities
     - GTMSessionFetcher
     - Hero
-    - KFImageViewer
     - Kingfisher
+    - LNZCollectionLayouts
     - Moya
     - nanopb
+    - PromisesObjC
     - Protobuf
-    - Result
-    - RxAtomic
     - RxCocoa
     - RxDataSources
     - RxGesture
+    - RxRelay
     - RxSwift
     - SnapKit
     - SwiftyJSON
-    - TestFairy
     - UIEmptyState
+    - YouTubePlayer
+
+EXTERNAL SOURCES:
+  KFImageViewer:
+    :git: https://github.com/MRzr/KFImageViewer.git
+
+CHECKOUT OPTIONS:
+  KFImageViewer:
+    :commit: 9715fd68d979808a5084f1a4346be617502c87a8
+    :git: https://github.com/MRzr/KFImageViewer.git
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  ClusterKit: d8cc410748bdaacf5051c9353fb6a62d78245554
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  ClusterKit: 6d4b2fdfdd2a74a386fd67dd60a29a69851745e0
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
-  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
+  DPPickerManager: ae56c97b351e49c047e6daeb16ec358cb247be88
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
-  Firebase: 9190018e296139d938b99521cde0c15a6e8d2946
-  FirebaseABTesting: 1f50b8d50f5e3469eea54e7463a7b7fe221d1f5e
-  FirebaseAnalytics: 63202d2665de4e6adcbdce189135255d8b5962ba
-  FirebaseCore: 027d350adc039aa5483357c6f56556f117c5170e
-  FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
-  FirebasePerformance: 071ef097e7fb2d4f2f27fac1d4ed72ae3dd737d7
-  FirebaseRemoteConfig: 7e11c65f0769c09bff6947997c209515058c5318
+  Firebase: 658370fa0181826a74b7cfca8d68c5856ca749ae
+  FirebaseABTesting: 8a9d8df3acc2b43f4a22014ddf9f601bca6af699
+  FirebaseAnalytics: 0ca9aa2af7cc4dc92392b7a78bfc49feaa2eb60f
+  FirebaseCore: 6fb954e350af0885803d5aa49865d15d9a6b264c
+  FirebaseCoreDiagnostics: 7415bfb3883b3500c5a95c42b6ba66baae78f600
+  FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
+  FirebasePerformance: 269607f1dcf37bb1f21e3b3ae0ab5b2691644c54
+  FirebaseRemoteConfig: e40f9e084658210c4d9c341cfa9f6cab6ad4f67e
+  FloatingPanel: bb17fd6fc7ae519f877f7bd30f4f6115a78acf07
   GeoJSONSerialization: 55a3d24fe9af26508e3af76873114b39b13ba479
-  GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
-  GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
-  GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
-  GoogleUtilities: bb6ff5a302c97a0bc9820dad775505778c5a2676
-  GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
-  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
-  KFImageViewer: aef0b2b7d14087a9c972a5cfe6f8d4cd371cac37
-  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
-  Moya: a725035953bc1c0eb1be505ab903984501d82440
-  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
-  Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
-  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
-  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
-  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
-  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
-  RxGesture: 7f6dfb45dbde06e618c24442d38493e3144f2c95
-  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
-  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
-  TestFairy: cd57addd39c740248b59ffaa8d992094fe65185a
+  Google-Maps-iOS-Utils: 5481c2c8999a7847424755d777c241c238243c0a
+  GoogleAppMeasurement: ecc30d0ab5b66d7d18e85ce1b8e2b345db60626d
+  GoogleDataTransport: e85fb700c9b027079ce182c3d08e12e0f9618bb4
+  GoogleMaps: 8c080862ff2748ece9929471b30feb56a6c5079d
+  GoogleToolboxForMac: 800648f8b3127618c1b59c7f97684427630c5ea3
+  GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
+  GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
+  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
+  KFImageViewer: 5d0608b2ff48b068ea1261c93ffaf92edd268eb5
+  Kingfisher: 1acb67597a520c2d0310677e66d6e0af455ef757
+  LNZCollectionLayouts: 509d8143a70db014f2094ae7052ec879ab988dab
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
+  PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
+  Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
+  RxGesture: d6bd7447ca3a596c7a9702a6a2b6a2bb5d8bae54
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   UIEmptyState: 767376694d9402452fb3c0a5a5283176c6a53c92
+  YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: a0f428ffc25c087a82ac3098cef67da70e3abce4
+PODFILE CHECKSUM: a6a424dfc869f52c5e1d13babf08713c0b51701a
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.9.3

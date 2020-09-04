@@ -15,6 +15,9 @@
     <a href="http://cocoapods.org/pods/ClusterKit">
         <img src="https://img.shields.io/cocoapods/p/ClusterKit.svg?style=flat" alt="Platform">
     </a>
+    <a href="https://swift.org/package-manager">
+        <img src="https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg" alt="Swift Package Manager" />
+    </a>
     <a href="https://github.com/Carthage/Carthage">
         <img src="https://img.shields.io/badge/Carthage-compatible-brightgreen.svg?style=flat" alt="Carthage">
     </a>
@@ -26,7 +29,7 @@ ClusterKit is an elegant and efficiant clustering controller for maps. Its flexi
 
 ## Features
 
-+ Native supports of [**MapKit**](https://developer.apple.com/documentation/mapkit), [**GoogleMaps**](https://developers.google.com/maps/documentation/ios-sdk) and [**Mapbox**](https://www.mapbox.com/ios-sdk/).
++ Native supports of [**MapKit**](https://developer.apple.com/documentation/mapkit), [**GoogleMaps**](https://developers.google.com/maps/documentation/ios-sdk), [**Mapbox**](https://www.mapbox.com/ios-sdk/) and [**YandexMapKit**](https://tech.yandex.com/maps/mapkit/).
 + Comes with 2 clustering algorithms, a Grid Based Algorithm and a Non Hierarchical Distance Based Algorithm.
 + Annotations are stored in a [QuadTree](https://en.wikipedia.org/wiki/Quadtree) for efficient region queries.
 + Cluster center can be switched to **Centroid**, **Nearest Centroid**, **Bottom**.
@@ -39,7 +42,7 @@ ClusterKit is an elegant and efficiant clustering controller for maps. Its flexi
 
 ## Installation & Usage
 
-### Please follow the [wiki](https://github.com/hulab/ClusterKit/wiki) for integration.
+**Please follow the [wiki](https://github.com/hulab/ClusterKit/wiki) for integration.**
 
 If you want to try it, simply run:
 
@@ -52,9 +55,13 @@ Or clone the repo and run `pod install` from the [Examples](Examples) directory 
 
 > Provide the [Mapbox Access Token](https://www.mapbox.com/studio/account/tokens/) in the AppDelegate in order to try it with Mapbox.
 
+> Provide the [Yandex API Key](https://developer.tech.yandex.ru/) in the AppDelegate in order to try it with YandexMapKit.
+
 ## Credits
 
 Assets by [Hugo des Gayets](https://dribbble.com/hugodesgayets).
+
+Thanks [@petropavel13](https://github.com/petropavel13) for the **YandexMapKit** integration.
 
 ## License
 

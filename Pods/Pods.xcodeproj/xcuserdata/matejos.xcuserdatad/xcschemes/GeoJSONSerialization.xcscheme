@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A9833BD2BB93087B51B5BA7B93A7C44D"
+               BlueprintIdentifier = "4E2B17FFFD6980B4B2AE7A7E4E0C5412"
+               BuildableName = "GeoJSONSerialization.framework"
                BlueprintName = "GeoJSONSerialization"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "GeoJSONSerialization.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

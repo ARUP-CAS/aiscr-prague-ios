@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E4B8334FEFF4ECDC9D750B1A7B31E5C7"
+               BlueprintIdentifier = "C05BCC41560261FA3613F1E092D7055B"
+               BuildableName = "UIEmptyState.framework"
                BlueprintName = "UIEmptyState"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "UIEmptyState.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

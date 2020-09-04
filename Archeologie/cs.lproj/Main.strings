@@ -1,0 +1,17 @@
+
+
+/* Class = "UITextField"; placeholder = "Vyhledávat"; ObjectID = "6rT-Be-qNN"; */
+"6rT-Be-qNN.placeholder" = "Vyhledávat";
+
+/* Class = "UIButton"; normalTitle = "Info"; ObjectID = "7EY-mT-of6"; */
+"7EY-mT-of6.normalTitle" = "Info";
+
+
+/* Class = "UIButton"; normalTitle = "Seznam"; ObjectID = "Ujn-FK-MG8"; */
+"Ujn-FK-MG8.normalTitle" = "Seznam";
+
+
+/* Class = "UIButton"; normalTitle = "Gallery"; ObjectID = "spz-aH-cxF"; */
+"spz-aH-cxF.normalTitle" = "Gallery";
+"8gA-Rd-LCV.text" = "Adresa";
+"tOt-as-1s6.normalTitle" = "Zavřít";
