@@ -36,11 +36,11 @@ class LocationsViewController:BaseViewController {
         setupRX()
     }
     private func setupRX () {
-        PlacesService.service.getLocations(id: nil)
+        
         PlacesService.service.locations.asObservable().bind(to: places).disposed(by: disposeBag)
         
         places.asObservable().subscribe { (places) in
-                
+            
             self.annotations = [:]
             places.element?.filter({ place -> Bool in
                 
@@ -67,7 +67,7 @@ class LocationsViewController:BaseViewController {
             mapView = GMSMapView(frame: view.bounds)
             mapView.delegate = self
             //            mapView = nil
-
+            
             mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             mapContainer.addSubview(mapView)
             
@@ -142,7 +142,7 @@ class LocationsViewController:BaseViewController {
         self.dismiss(animated: true, completion: nil)
     }
     private func setupFloatingPanel() {
-    
+        
         
         if fpc == nil {
             fpLayout.type = .locations
@@ -161,7 +161,7 @@ class LocationsViewController:BaseViewController {
             
             // Add and show the views managed by the `FloatingPanelController` object to self.view.
             fpc.addPanel(toParent: self)
-
+            
             fpc.surfaceView.cornerRadius = 20
             
             fpc.set(contentViewController: pullController)
@@ -203,7 +203,7 @@ extension LocationsViewController:CKClusterManagerDelegate, GMSMapViewDataSource
             label.layer.masksToBounds = true
             label.layer.cornerRadius = 20
             label.backgroundColor = Config.Color.mainYellow
-
+            
             marker.iconView = label
             
             return marker
@@ -260,7 +260,7 @@ extension LocationsViewController:CKClusterManagerDelegate, GMSMapViewDataSource
                 alert.addAction(UIAlertAction(title: place.title.truncate(length: 45, trailing: "…"), style: .default, handler: { (_) in
                     self.populatePlaceView(place: place)
                     print("Selected place: \(place.title)")
-
+                    
                 }))
                 
                 //                self.populatePlaceView(place: place)
@@ -302,16 +302,16 @@ extension LocationsViewController:CKClusterManagerDelegate, GMSMapViewDataSource
     }
     
     private func populatePlaceView(place:Location) {
-      if let nav = self.storyboard?.instantiateViewController(withIdentifier: "placeDetailNav") as? UINavigationController, let placeDetailViewController = nav.viewControllers.first as? PlaceDetailViewController {
-                    nav.modalPresentationStyle = .overCurrentContext
-                    nav.hero.isEnabled = true
-                    nav.hero.modalAnimationType = .selectBy(presenting: .cover(direction: .up), dismissing: .uncover(direction: .down))
-                    nav.modalPresentationCapturesStatusBarAppearance = true
-                    placeDetailViewController.place = place
-        //            statusBar = .lightContent
-        //            setNeedsStatusBarAppearanceUpdate()
-                    self.show(nav, sender: nil)
-                }
+        if let nav = self.storyboard?.instantiateViewController(withIdentifier: "placeDetailNav") as? UINavigationController, let placeDetailViewController = nav.viewControllers.first as? PlaceDetailViewController {
+            nav.modalPresentationStyle = .overCurrentContext
+            nav.hero.isEnabled = true
+            nav.hero.modalAnimationType = .selectBy(presenting: .cover(direction: .up), dismissing: .uncover(direction: .down))
+            nav.modalPresentationCapturesStatusBarAppearance = true
+            placeDetailViewController.place = place
+            //            statusBar = .lightContent
+            //            setNeedsStatusBarAppearanceUpdate()
+            self.show(nav, sender: nil)
+        }
         
         //        if let placeView = Bundle.main.loadNibNamed("PlaceView", owner: self, options: nil)?.first as? PlaceView {
         //

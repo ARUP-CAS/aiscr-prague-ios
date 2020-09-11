@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        GMSServices.provideAPIKey("AIzaSyAp_qkNJLdonrOpp1G7t9IZCW2FLbPkNm8")
+        GMSServices.provideAPIKey("AIzaSyDHt_BAqI61rVicpUgqAKJX2oy4-i0V-0s")
         FirebaseApp.configure()
         URLCache.shared.removeAllCachedResponses()
 //

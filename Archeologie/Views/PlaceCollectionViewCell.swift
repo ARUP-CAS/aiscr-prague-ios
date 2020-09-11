@@ -24,6 +24,8 @@ class PlaceCollectionViewCell: UICollectionViewCell {
         didSet {
             if let url = try? place.images.first?.url.asURL() {
             imageView.kf.setImage(with: url)
+            } else {
+                imageView.image = nil
             }
             titleLabel.text = place.title
             overlayView.gradientBackground(from: Config.Color.primary, to: UIColor.clear, direction: .bottomToTop)

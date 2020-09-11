@@ -19,6 +19,7 @@ class ThematicsPullViewController: BaseViewController {
     
     @IBOutlet weak var detailStack: UIStackView!
     
+    var placeSelected:((Thematic)->Void)?
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -47,7 +48,7 @@ class ThematicsPullViewController: BaseViewController {
                 cell.selectedPlace = PlacesService.service.selectedThematic.value?.id == model.id || PlacesService.service.selectedThematic.value == nil
                 cell.rx.tapGesture().when(.recognized).asObservable().subscribe{ (tap) in
                     
-                    PlacesService.service.selectedThematic.accept(model == PlacesService.service.selectedThematic.value ? nil : model)
+                    self.placeSelected?(model)
                     
                 }.disposed(by: cell.disposeBag)
             }

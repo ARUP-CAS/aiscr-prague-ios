@@ -20,8 +20,8 @@ class ArchFloatingPanelLayout: FloatingPanelLayout {
         case .thematics:
             switch position {
             case .full: return 0
-            case .half: return 236 - offset
-            case .tip: return 62 - offset
+            case .half: return 256 - offset
+            case .tip: return 82 - offset
             default: return nil
             }
         case .locations:

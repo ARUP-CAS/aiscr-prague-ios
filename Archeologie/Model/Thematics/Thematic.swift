@@ -17,8 +17,9 @@ struct Thematic: Codable, Equatable, Place {
     var latitude, longitude: Double
     var locations: [Int]
     var logo1, logo2, logo3, logo4: String
+    var image:String
     var images: [Image]  {
-           return [Image(url: "http://accolade2020.visu.cz/dist/front/images/dev/planned_site_1.jpg", sort: 1, text: "")]
+           return [Image(url: image, sort: 1, text: "")]
        }
 
     var author, professionalCooperation, artisticsCooperation, thanks: String
