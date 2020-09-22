@@ -72,6 +72,7 @@
 		4ADD1CAD25149967003D8EDA /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD1CAC25149967003D8EDA /* Text.swift */; };
 		4ADD1CAF251499C6003D8EDA /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADD1CAE251499C6003D8EDA /* Content.swift */; };
 		4AE67EA42519D89400506E0E /* JSONSchemaSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE67EA32519D89400506E0E /* JSONSchemaSupport.swift */; };
+		4AE67EA92519DD2200506E0E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4AE67EA82519DD2200506E0E /* .gitignore */; };
 		4AE717332369845F00833E2E /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE717312369845F00833E2E /* Place.swift */; };
 		4AEB2309250225F500959001 /* map-style.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AEB2308250225F400959001 /* map-style.json */; };
 		4AFFA60324F53C6800797702 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFFA5F924F53C6800797702 /* ViewController.swift */; };
@@ -177,6 +178,7 @@
 		4ADD1CAC25149967003D8EDA /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		4ADD1CAE251499C6003D8EDA /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		4AE67EA32519D89400506E0E /* JSONSchemaSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JSONSchemaSupport.swift; path = "../../../../../../Downloads/Thematic Swift (quicktype)/JSONSchemaSupport.swift"; sourceTree = "<group>"; };
+		4AE67EA82519DD2200506E0E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4AE717312369845F00833E2E /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		4AEB2308250225F400959001 /* map-style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "map-style.json"; sourceTree = "<group>"; };
 		4AFFA5F924F53C6800797702 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 		4ACA10B420BC40A600812726 = {
 			isa = PBXGroup;
 			children = (
+				4AE67EA82519DD2200506E0E /* .gitignore */,
 				4AA2AE8B2362DE0F00E6566E /* Default-568h@2x.png */,
 				4AA2AE072362DD6F00E6566E /* Archeologie */,
 				4ACA10BE20BC40A600812726 /* Products */,
@@ -617,6 +620,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AA2AE872362DD6F00E6566E /* 18_PBK_mapa-JSON_v02.json in Resources */,
+				4AE67EA92519DD2200506E0E /* .gitignore in Resources */,
 				4A1916F8250F4B9900CE9B91 /* ImageCard.xib in Resources */,
 				4A91A8232513850600F2F0D3 /* README.md in Resources */,
 				4AA2AE5C2362DD6F00E6566E /* style.json in Resources */,

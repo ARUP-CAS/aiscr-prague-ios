@@ -1,6 +1,0 @@
-framework module DPPickerManager {
-  umbrella header "DPPickerManager-umbrella.h"
-
-  export *
-  module * { export * }
-}
