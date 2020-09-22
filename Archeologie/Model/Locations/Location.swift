@@ -13,12 +13,13 @@ import Foundation
 // MARK: - Location
 struct Location: Codable, Equatable,Place {
     var id: Int
-    var title, text: String
+    var title:String
     var latitude, longitude: Double
     var address, externalLink: String
-    var images: [Image]
-    var models, videos: [Model]
-    var ars: [Ar]
+    var content: [LocationContent]
+    var thematics: [Int]
+    var image:String
+    var type:String
     
     var coordinate:CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)

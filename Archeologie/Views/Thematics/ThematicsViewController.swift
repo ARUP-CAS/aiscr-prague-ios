@@ -19,6 +19,9 @@ class ThematicsViewController:BaseViewController {
     
     @IBOutlet var mapContainer: UIView!
     @IBOutlet weak var searchField: UITextField!
+    @IBOutlet weak var scaleBar: ScaleBarView!
+    @IBOutlet weak var scaleBottomConstraint: NSLayoutConstraint!
+    
     var mapView:GMSMapView!
     var geoJsonParser:GMUGeoJSONParser!
     var renderer:GMUGeometryRenderer!
@@ -55,11 +58,12 @@ class ThematicsViewController:BaseViewController {
             
             //            self.setPlaces()
             //            self.zoomToAllParks()
+            self.renderJson()
+            
             self.zoomToPolygons()
             self.searchField.resignFirstResponder()
-            self.renderJson()
-
-
+            
+            
             
         }.disposed(by: disposeBag)
         
@@ -104,7 +108,8 @@ class ThematicsViewController:BaseViewController {
             let algo = CKNonHierarchicalDistanceBasedAlgorithm()
             algo.cellSize = 320
             self.mapView.clusterManager.algorithm = algo
-            self.mapView.setMinZoom(3, maxZoom: 18)
+            self.mapView.setMinZoom(7, maxZoom: 18)
+            self.mapView.cameraTargetBounds = GMSCoordinateBounds(coordinate: CLLocationCoordinate2D(latitude: 50.951506094481545, longitude: 12.06298828125), coordinate: CLLocationCoordinate2D(latitude: 48.37084770238366, longitude: 18.709716796875))
             self.mapView.settings.myLocationButton = true
             //            self.mapView.clusterManager.marginFactor = 1
             self.mapView.dataSource = self
@@ -116,20 +121,21 @@ class ThematicsViewController:BaseViewController {
                 self.mapView.mapStyle = style
             }
             
-            let path = Bundle.main.path(forResource: "map", ofType: "geojson")
-            let url = URL(fileURLWithPath: path!)
-            geoJsonParser = GMUGeoJSONParser(url: url)
-            geoJsonParser.parse()
-            
-
             
             
+            
+            
+            scaleBar.mapView = mapView
         }
         
     }
     
     private func renderJson() {
+        let geoJsonData = PlacesService.service.getGeoJSONData()
         
+        geoJsonParser = GMUGeoJSONParser(data: geoJsonData)
+        
+        geoJsonParser.parse()
         if renderer != nil {
             renderer.clear()
             
@@ -173,7 +179,7 @@ class ThematicsViewController:BaseViewController {
         
     }
     private func zoomToPolygons(placeId:Int? = nil) {
-    
+        
         let coordinates = self.geoJsonParser.features.filter({ feature in
             if placeId == nil {return true}
             if let feature = feature as? GMUFeature, let properties = feature.properties ,let id = properties["topic-id"] as? Int {
@@ -251,13 +257,7 @@ class ThematicsViewController:BaseViewController {
     }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        if fpc != nil {
-            
-            let y = self.view.frame.size.height - fpc.surfaceView.frame.origin.y
-            if let max =  fpc.layout.insetFor(position: .half) {
-                self.mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: min(y, max), right: 0)
-            }
-        }
+        
         setupFloatingPanel()
         
     }
@@ -324,7 +324,6 @@ extension ThematicsViewController:CKClusterManagerDelegate, GMSMapViewDataSource
     
     func mapView(_ mapView: GMSMapView, didTap overlay: GMSOverlay) {
         if let userData = overlay.userData as? [String:Any], let placeId = userData["topic-id"] as? Int, let place = PlacesService.service.thematics.value.first(where: {$0.id == placeId}){
-            print(overlay)
             
             self.selectPlace(place: place)
             if let  index = PlacesService.service.thematics.value.map({$0.id}).firstIndex(of: place.id) {
@@ -340,8 +339,10 @@ extension ThematicsViewController:CKClusterManagerDelegate, GMSMapViewDataSource
     }
     
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-        
+        self.scaleBar.setNeedsLayout()
     }
+
+    
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         if let cluster = marker.cluster, cluster.count > 1 && Float(self.mapView.zoom) == self.mapView.maxZoom {
             
@@ -394,13 +395,13 @@ extension ThematicsViewController:CKClusterManagerDelegate, GMSMapViewDataSource
     }
     
     private func selectPlace(place:Thematic?) {
-      
+        
         if let previousPlace = PlacesService.service.selectedThematic.value, place == previousPlace{
             self.fpc.move(to: .full, animated: true)
         } else {
             if place != nil && self.fpc.position != .full {
                 self.fpc.move(to: .half, animated: true)
-
+                
             }
             PlacesService.service.selectedThematic.accept(place)
             self.zoomToPolygons(placeId: place?.id)
@@ -436,24 +437,33 @@ extension ThematicsViewController:FloatingPanelControllerDelegate {
     }
     func floatingPanelDidChangePosition(_ vc: FloatingPanelController) {
         
-        if vc.position != .full, mapView != nil, let offset = vc.layout.insetFor(position: vc.position) {
-            self.mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: offset, right: 0)
+        self.updateMapPadding()
+        self.pullController.collectionView.alpha = vc.position == .tip ? 0 : 1
+        
+    }
+    
+    
+    func floatingPanelDidMove(_ vc: FloatingPanelController) {
+        
+        
+        let y = self.view.frame.size.height - vc.surfaceView.frame.origin.y
+        if let max =  vc.layout.insetFor(position: .half) {
+            let tip = vc.layout.insetFor(position: .tip) ?? 0
+            self.pullController.collectionView.alpha = min((y - tip) / (max), 1)
             
         }
         
-    }
-    func floatingPanelDidMove(_ vc: FloatingPanelController) {
-        UIView.animateKeyframes(withDuration: 0.0, delay: 0.0, options: [.calculationModeCubic], animations: {
-            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
-                // Update Map padding
-                let y = self.view.frame.size.height - vc.surfaceView.frame.origin.y
-                if let max =  vc.layout.insetFor(position: .half) {
-                    self.mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: min(y, max), right: 0)
-                }
-                
-                
-            }
-        })
         
+    }
+    
+    func updateMapPadding() {
+        if self.fpc.position != .full, mapView != nil, let offset = self.fpc.layout.insetFor(position: self.fpc.position) {
+            self.mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: offset, right: 0)
+            
+            self.scaleBottomConstraint.constant = offset + 10
+            
+            self.view.layoutIfNeeded()
+            
+        }
     }
 }

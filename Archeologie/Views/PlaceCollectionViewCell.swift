@@ -22,7 +22,7 @@ class PlaceCollectionViewCell: UICollectionViewCell {
     var disposeBag = DisposeBag()
     var place:Place! {
         didSet {
-            if let url = try? place.images.first?.url.asURL() {
+            if let url = try? place.image.asURL() {
             imageView.kf.setImage(with: url)
             } else {
                 imageView.image = nil

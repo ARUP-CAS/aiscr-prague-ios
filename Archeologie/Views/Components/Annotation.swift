@@ -32,6 +32,9 @@ class Marker: GMSMarker {
         }
     }
     
+    var type:String = ""
+    
+    
     fileprivate func draw() {
         let label = AlignedLabel(frame: CGRect(x: 0, y: 0, width: 28, height: 28))
         label.text = "+"

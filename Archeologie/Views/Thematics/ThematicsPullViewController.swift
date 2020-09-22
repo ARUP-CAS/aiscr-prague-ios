@@ -56,7 +56,7 @@ class ThematicsPullViewController: BaseViewController {
     }
     
     private func setupPlace(place:Thematic) {
-        if let url = try? place.images.first?.url.asURL() {
+        if let url = try? place.image.asURL() {
             placeImage.kf.setImage(with: url)
         }
         placeTitle.text = place.title

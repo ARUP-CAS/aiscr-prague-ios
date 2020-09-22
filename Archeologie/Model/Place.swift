@@ -20,7 +20,7 @@ protocol Place {
     var latitude: Double  { get set }
 
 
-    var images: [Image] { get }
+    var image: String { get }
 
 
 }

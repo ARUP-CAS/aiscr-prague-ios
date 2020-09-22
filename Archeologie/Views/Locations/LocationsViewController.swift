@@ -19,7 +19,8 @@ class LocationsViewController:BaseViewController {
     var mapView:GMSMapView!
     
     let mapPadding:CGFloat = UIScreen.main.bounds.width < 400 ? 128 : 256
-    
+    @IBOutlet weak var scaleBar: ScaleBarView!
+    @IBOutlet weak var scaleBottomConstraint: NSLayoutConstraint!
     lazy var selectedPlaceBag:DisposeBag = DisposeBag()
     
     var thematic:Thematic!
@@ -56,9 +57,23 @@ class LocationsViewController:BaseViewController {
                 
             })
             self.mapView.clusterManager.annotations = self.annotations.values.map({$0})
-            self.zoomToAllParks()
+            delay(0.2) {
+                self.zoomToAllParks()
+            }
+            
         }.disposed(by: disposeBag)
         
+        PlacesService.service.selectedLocation.asObservable().subscribe { (event) in
+            
+            guard let place = event.element, self.fpc != nil else { return }
+            
+            self.fpLayout.fullEnabled = place != nil
+            
+            
+            //            self.fpc.move(to: place != nil ? .full : .half, animated: true)
+            self.setPlaces()
+            
+        }.disposed(by: disposeBag)
         
     }
     private func addMap() {
@@ -86,7 +101,8 @@ class LocationsViewController:BaseViewController {
             let algo = CKNonHierarchicalDistanceBasedAlgorithm()
             algo.cellSize = 500
             self.mapView.clusterManager.algorithm = algo
-            self.mapView.setMinZoom(3, maxZoom: 18)
+            self.mapView.setMinZoom(7, maxZoom: 18)
+            self.mapView.cameraTargetBounds = GMSCoordinateBounds(coordinate: CLLocationCoordinate2D(latitude: 50.951506094481545, longitude: 12.06298828125), coordinate: CLLocationCoordinate2D(latitude: 48.37084770238366, longitude: 18.709716796875))
             self.mapView.settings.myLocationButton = true
             //            self.mapView.clusterManager.marginFactor = 1
             self.mapView.dataSource = self
@@ -102,11 +118,20 @@ class LocationsViewController:BaseViewController {
                     
                 }
             }).disposed(by: disposeBag)
+            self.scaleBar.mapView = mapView
         }
         
     }
-    func zoomToPlace(place:Thematic) {
-        self.mapView.moveCamera(GMSCameraUpdate.setTarget(place.coordinate, zoom: 15))
+    func zoomToPlace(place:Location?) {
+        if let place = place {
+            
+            self.mapView.animate(with: GMSCameraUpdate.setTarget(place.coordinate, zoom: 20))
+            
+        }
+        else {
+            self.zoomToAllParks()
+            
+        }
     }
     private func zoomToAllParks() {
         
@@ -119,15 +144,11 @@ class LocationsViewController:BaseViewController {
         //               self.closeView(self)
         
     }
-    private func resetPlaces() {
+    private func setPlaces() {
         self.annotations = [:]
         
         
-        places.value.filter({ place -> Bool in
-            
-            return place.coordinate.isInRegion(region: self.mapView.projection.visibleRegion())
-            
-        }).forEach({ (place) in
+        places.value.forEach({ (place) in
             
             let coordinate = place.coordinate
             let annotation = Annotation(id: place.id, coordinate: coordinate)
@@ -154,6 +175,9 @@ class LocationsViewController:BaseViewController {
             
             // Set a content view controller.
             pullController = storyboard?.instantiateViewController(withIdentifier: "locationsPullController") as? LocationsPullViewController
+            pullController.placeSelected = { place in
+                self.selectPlace(place: place)
+            }
             fpc.set(contentViewController: pullController)
             
             // Track a scroll view(or the siblings) in the content view controller.
@@ -169,14 +193,12 @@ class LocationsViewController:BaseViewController {
     }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        if fpc != nil {
-            
-            let y = self.view.frame.size.height - fpc.surfaceView.frame.origin.y
-            if let max =  fpc.layout.insetFor(position: .half) {
-                self.mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: min(y, max), right: 0)
-            }
-        }
         setupFloatingPanel()
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.fpLayout.fullEnabled = PlacesService.service.selectedLocation.value != nil
         
     }
 }
@@ -184,10 +206,6 @@ class LocationsViewController:BaseViewController {
 
 extension LocationsViewController:CKClusterManagerDelegate, GMSMapViewDataSource,GMSMapViewDelegate {
     
-    func mapViewSnapshotReady(_ mapView: GMSMapView) {
-        print("snapshot ready")
-        
-    }
     
     func mapView(_ mapView: GMSMapView, markerFor cluster: CKCluster) -> GMSMarker {
         
@@ -202,7 +220,7 @@ extension LocationsViewController:CKClusterManagerDelegate, GMSMapViewDataSource
             label.textAlignment = .center
             label.layer.masksToBounds = true
             label.layer.cornerRadius = 20
-            label.backgroundColor = Config.Color.mainYellow
+            label.backgroundColor = .white
             
             marker.iconView = label
             
@@ -214,7 +232,13 @@ extension LocationsViewController:CKClusterManagerDelegate, GMSMapViewDataSource
         
         if let annotation = cluster.annotations.first as? Annotation, let place = places.value.first(where: {$0.id == annotation.id}){ //, let color = PlacesService.service.tags.value.first(where: {$0.title == place.filter})?.color
             
-            //            marker.color = UIColor(hexString: color)
+            if let icon = UIImage(named: "\(place.type)\( PlacesService.service.selectedLocation.value?.id == place.id ? "-selected" : "")") {
+                marker.icon = icon
+            } else {
+                marker.isActive = PlacesService.service.selectedLocation.value?.id == place.id
+                marker.color = Config.Color.orange
+                
+            }
             self.markers[place.id] = marker
             
         }
@@ -226,23 +250,17 @@ extension LocationsViewController:CKClusterManagerDelegate, GMSMapViewDataSource
         //        return GMSMarker(position: cluster.coordinate)
     }
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
-        self.resetPlaces()
-        
+        self.setPlaces()
     }
-    func mapViewDidFinishTileRendering(_ mapView: GMSMapView) {
-        print("finish rendering")
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+        self.scaleBar.setNeedsLayout()
     }
-    
-    
-    
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         //        self.closeView(self)
+        self.selectPlace(place: nil)
     }
     
-    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-        print("changed position")
-        
-    }
+    
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         if let cluster = marker.cluster, cluster.count > 1 && Float(self.mapView.zoom) == self.mapView.maxZoom {
             
@@ -258,20 +276,16 @@ extension LocationsViewController:CKClusterManagerDelegate, GMSMapViewDataSource
                 
                 selectedPlaces.append(place)
                 alert.addAction(UIAlertAction(title: place.title.truncate(length: 45, trailing: "…"), style: .default, handler: { (_) in
-                    self.populatePlaceView(place: place)
-                    print("Selected place: \(place.title)")
+                    self.selectPlace(place: place)
+                    if let  index = PlacesService.service.locations.value.map({$0.id}).firstIndex(of: place.id) {
+                        self.pullController.collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
+                    }
                     
                 }))
                 
-                //                self.populatePlaceView(place: place)
                 
             }
-            //            DPPickerManager.shared.showPicker(title: "Strings Picker", selected: placesTitles.first!, strings: placesTitles) { (value, index, cancel) in
-            //                if !cancel {
-            //                    // TODO: you code here
-            //                    debugPrint(value as Any)
-            //                }
-            //            }
+            
             alert.addAction(UIAlertAction(title: "Zrušit", style: .cancel, handler: nil))
             alert.message = "Vyberte místo"
             UILabel.appearance(whenContainedInInstancesOf: [UIAlertController.self]).numberOfLines = 2
@@ -288,41 +302,31 @@ extension LocationsViewController:CKClusterManagerDelegate, GMSMapViewDataSource
         }
         
         if let anot = marker.cluster?.annotations.first as? Annotation, let place = places.value.first(where: {$0.id == anot.id}) {
-            //            self.selectedPlace = place
-            //            if let marker = marker as? Marker {
-            //                marker.isActive = true
-            //            }
             
-            print("Selected place: \(place.title)")
-            self.populatePlaceView(place: place)
-            
+            self.selectPlace(place: place)
+            if let  index = PlacesService.service.locations.value.map({$0.id}).firstIndex(of: place.id) {
+                self.pullController.collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: true)
+            }
             
         }
         return true
     }
     
-    private func populatePlaceView(place:Location) {
-        if let nav = self.storyboard?.instantiateViewController(withIdentifier: "placeDetailNav") as? UINavigationController, let placeDetailViewController = nav.viewControllers.first as? PlaceDetailViewController {
-            nav.modalPresentationStyle = .overCurrentContext
-            nav.hero.isEnabled = true
-            nav.hero.modalAnimationType = .selectBy(presenting: .cover(direction: .up), dismissing: .uncover(direction: .down))
-            nav.modalPresentationCapturesStatusBarAppearance = true
-            placeDetailViewController.place = place
-            //            statusBar = .lightContent
-            //            setNeedsStatusBarAppearanceUpdate()
-            self.show(nav, sender: nil)
+    private func selectPlace(place:Location?) {
+        
+        
+        if let previousPlace = PlacesService.service.selectedLocation.value, place == previousPlace{
+            self.fpc.move(to: .full, animated: true)
+        } else {
+            if place != nil && self.fpc.position != .full {
+                self.fpc.move(to: .half, animated: true)
+                
+            }
+            PlacesService.service.selectedLocation.accept(place)
+            self.zoomToPlace(place: place)
+            
         }
         
-        //        if let placeView = Bundle.main.loadNibNamed("PlaceView", owner: self, options: nil)?.first as? PlaceView {
-        //
-        //            placeView.place = place
-        //            placesStackView.addArrangedSubview(placeView)
-        //            placeView.rx.tapGesture().when(.recognized).asObservable().subscribe(onNext: { (_) in self.masterVC?.showPlace(place: place)}).disposed(by: disposeBag)
-        //
-        //            placeView.widthAnchor.constraint(equalTo: placesView.widthAnchor, multiplier: 1).isActive = true
-        //            self.placesView.isHidden = false
-        //
-        //        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -351,24 +355,31 @@ extension LocationsViewController:FloatingPanelControllerDelegate {
     }
     func floatingPanelDidChangePosition(_ vc: FloatingPanelController) {
         
-        if vc.position != .full, mapView != nil, let offset = vc.layout.insetFor(position: vc.position) {
-            self.mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: offset, right: 0)
+        self.updateMapPadding()
+        self.pullController.collectionView.alpha = vc.position == .tip ? 0 : 1
+        
+    }
+    
+    
+    func floatingPanelDidMove(_ vc: FloatingPanelController) {
+        
+        let y = self.view.frame.size.height - vc.surfaceView.frame.origin.y
+        if let max =  vc.layout.insetFor(position: .half) {
+            let tip = vc.layout.insetFor(position: .tip) ?? 0
+            self.pullController.collectionView.alpha = min((y - tip) / (max), 1)
             
         }
         
-    }
-    func floatingPanelDidMove(_ vc: FloatingPanelController) {
-        UIView.animateKeyframes(withDuration: 0.0, delay: 0.0, options: [.calculationModeCubic], animations: {
-            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
-                // Update Map padding
-                let y = self.view.frame.size.height - vc.surfaceView.frame.origin.y
-                if let max =  vc.layout.insetFor(position: .half) {
-                    self.mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: min(y, max), right: 0)
-                }
-                
-                
-            }
-        })
         
+    }
+    
+    func updateMapPadding() {
+        if self.fpc.position != .full, mapView != nil, let offset = self.fpc.layout.insetFor(position: self.fpc.position) {
+            self.scaleBottomConstraint.constant = offset + 10
+            
+            self.mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: offset, right: 0)
+            self.view.layoutIfNeeded()
+            
+        }
     }
 }

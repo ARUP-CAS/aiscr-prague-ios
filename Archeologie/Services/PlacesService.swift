@@ -37,7 +37,7 @@
             }
             
             let filteredLocations = locations.filter({ (place) -> Bool in
-                return place.title.searchable.contains(query.searchable) || place.address.searchable.contains(query.searchable) || place.text.searchable.contains(query.searchable)
+                return place.title.searchable.contains(query.searchable) || place.address.searchable.contains(query.searchable) // || place.text.searchable.contains(query.searchable)
             }).map {$0.id}
             
             return thematics.filter { (thematic) -> Bool in
@@ -166,4 +166,11 @@
             //        loadTags()
             getThematics()
         }
+    
+    func getGeoJSONData() -> Data {
+        var geoString = "{\"type\":\"FeatureCollection\",\"features\":"
+        let geoBody = try? String(data: JSONEncoder().encode(thematics.value.compactMap({$0.geoJSON})), encoding: .utf8)
+        geoString = "\(geoString)\(geoBody ?? "")}"
+        return geoString.data(using: .utf8) ?? Data()
+    }
     }

@@ -18,13 +18,17 @@ struct Thematic: Codable, Equatable, Place {
     var locations: [Int]
     var logo1, logo2, logo3, logo4: String
     var image:String
-    var images: [Image]  {
-           return [Image(url: image, sort: 1, text: "")]
-       }
 
     var author, professionalCooperation, artisticsCooperation, thanks: String
-    
+    var geoJSON: GeoJSON?
+
     var coordinate:CLLocationCoordinate2D {
           return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
       }
+    
+    enum CodingKeys: String, CodingKey {
+         case id, title, latitude, longitude, locations, image, logo1, logo2, logo3, logo4, author, professionalCooperation, artisticsCooperation, thanks
+         case geoJSON = "geoJson"
+     }
 }
+

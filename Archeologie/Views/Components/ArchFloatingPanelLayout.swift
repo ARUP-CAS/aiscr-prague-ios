@@ -21,25 +21,22 @@ class ArchFloatingPanelLayout: FloatingPanelLayout {
             switch position {
             case .full: return 0
             case .half: return 256 - offset
-            case .tip: return 82 - offset
+            case .tip: return 102 - offset
             default: return nil
             }
         case .locations:
             switch position {
             case .half: return 262 - offset
-            case .tip: return 87  - offset
+            case .tip: return 102  - offset
+            case .full: return 0
             default: return nil
             }
         }
         
     }
     var supportedPositions: Set<FloatingPanelPosition> {
-        switch type {
-        case .thematics:
-            return fullEnabled ? [.tip,.half,.full] :  [.tip,.half]
-        case .locations:
-            return  [.tip,.half]
-        }
+        return fullEnabled ? [.tip,.half,.full] :  [.tip,.half]
+
     }
     public var initialPosition: FloatingPanelPosition {
         return .tip

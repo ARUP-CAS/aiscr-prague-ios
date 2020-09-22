@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17124"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ImageCard" customModule="Archeologie" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wry-OS-NCp" customClass="ZoomImageView" customModule="ZoomImageView">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <viewLayoutGuide key="contentLayoutGuide" id="Qx7-q0-gLU"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="zZs-ob-nTr"/>
+                </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGS-hB-iJt">
+                    <rect key="frame" x="0.0" y="862" width="414" height="34"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Md3-Su-xli">
+                    <rect key="frame" x="0.0" y="821.5" width="414" height="40.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRE-cl-s6c">
+                            <rect key="frame" x="20" y="20" width="374" height="20.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20.5" id="YAW-7t-G2B"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <size key="shadowOffset" width="1" height="1"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="KRE-cl-s6c" secondAttribute="bottom" id="0Db-fj-07G"/>
+                        <constraint firstAttribute="trailing" secondItem="KRE-cl-s6c" secondAttribute="trailing" constant="20" symbolic="YES" id="YTv-Pc-IGu"/>
+                        <constraint firstItem="KRE-cl-s6c" firstAttribute="top" secondItem="Md3-Su-xli" secondAttribute="top" constant="20" symbolic="YES" id="hYv-T7-8ef"/>
+                        <constraint firstItem="KRE-cl-s6c" firstAttribute="leading" secondItem="Md3-Su-xli" secondAttribute="leading" constant="20" symbolic="YES" id="weu-EY-9X4"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Md3-Su-xli" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="1O8-80-PFs"/>
+                <constraint firstAttribute="bottom" secondItem="wry-OS-NCp" secondAttribute="bottom" id="7mo-be-k9S"/>
+                <constraint firstItem="wry-OS-NCp" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="9qs-jf-a2f"/>
+                <constraint firstItem="wry-OS-NCp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="DC5-wF-ego"/>
+                <constraint firstItem="Md3-Su-xli" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="OAe-ff-mxP"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Md3-Su-xli" secondAttribute="bottom" id="SpP-ti-03H"/>
+                <constraint firstItem="QGS-hB-iJt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WJQ-ct-TNd"/>
+                <constraint firstAttribute="bottom" secondItem="QGS-hB-iJt" secondAttribute="bottom" id="bSK-HF-WOw"/>
+                <constraint firstItem="QGS-hB-iJt" firstAttribute="top" secondItem="Md3-Su-xli" secondAttribute="bottom" id="lRI-bc-1I9"/>
+                <constraint firstAttribute="trailing" secondItem="QGS-hB-iJt" secondAttribute="trailing" id="u3C-0X-hhh"/>
+                <constraint firstItem="wry-OS-NCp" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="vTA-Da-Puo"/>
+            </constraints>
+            <connections>
+                <outlet property="imageView" destination="wry-OS-NCp" id="2ud-2h-q10"/>
+                <outlet property="overlayView" destination="Md3-Su-xli" id="4fV-Ka-moE"/>
+                <outlet property="textLabel" destination="KRE-cl-s6c" id="Nim-fO-bEC"/>
+            </connections>
+            <point key="canvasLocation" x="-236.23188405797103" y="141.29464285714286"/>
+        </view>
+    </objects>
+</document>

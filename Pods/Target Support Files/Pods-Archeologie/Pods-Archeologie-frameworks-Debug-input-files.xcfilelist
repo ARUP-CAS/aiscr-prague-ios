@@ -20,8 +20,8 @@ ${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework
 ${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework
 ${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework
 ${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
-${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
 ${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
 ${BUILT_PRODUCTS_DIR}/UIEmptyState/UIEmptyState.framework
 ${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework
+${BUILT_PRODUCTS_DIR}/ZoomImageView/ZoomImageView.framework
 ${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework

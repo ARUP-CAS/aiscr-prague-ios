@@ -153,10 +153,10 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
-  - SnapKit (5.0.1)
   - SwiftyJSON (5.0.0)
   - UIEmptyState (4.0.1)
   - YouTubePlayer (0.7.2)
+  - ZoomImageView (0.6.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -169,7 +169,7 @@ DEPENDENCIES:
   - Firebase/Performance
   - FloatingPanel
   - GeoJSONSerialization
-  - Google-Maps-iOS-Utils
+  - Google-Maps-iOS-Utils (from `https://github.com/MRzr/google-maps-ios-utils.git`)
   - GoogleMaps
   - Hero
   - KFImageViewer (from `https://github.com/MRzr/KFImageViewer.git`)
@@ -178,10 +178,10 @@ DEPENDENCIES:
   - Moya/RxSwift
   - RxDataSources
   - RxGesture
-  - SnapKit
   - SwiftyJSON
   - UIEmptyState
   - YouTubePlayer
+  - ZoomImageView
 
 SPEC REPOS:
   trunk:
@@ -201,7 +201,6 @@ SPEC REPOS:
     - FirebaseRemoteConfig
     - FloatingPanel
     - GeoJSONSerialization
-    - Google-Maps-iOS-Utils
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleMaps
@@ -220,16 +219,21 @@ SPEC REPOS:
     - RxGesture
     - RxRelay
     - RxSwift
-    - SnapKit
     - SwiftyJSON
     - UIEmptyState
     - YouTubePlayer
+    - ZoomImageView
 
 EXTERNAL SOURCES:
+  Google-Maps-iOS-Utils:
+    :git: https://github.com/MRzr/google-maps-ios-utils.git
   KFImageViewer:
     :git: https://github.com/MRzr/KFImageViewer.git
 
 CHECKOUT OPTIONS:
+  Google-Maps-iOS-Utils:
+    :commit: 92e4d4ac6389360b36f4e51f9e17c248211e101b
+    :git: https://github.com/MRzr/google-maps-ios-utils.git
   KFImageViewer:
     :commit: 9715fd68d979808a5084f1a4346be617502c87a8
     :git: https://github.com/MRzr/KFImageViewer.git
@@ -271,11 +275,11 @@ SPEC CHECKSUMS:
   RxGesture: d6bd7447ca3a596c7a9702a6a2b6a2bb5d8bae54
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
-  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   UIEmptyState: 767376694d9402452fb3c0a5a5283176c6a53c92
   YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
+  ZoomImageView: 2a88d0c10ad30b9a06c8f5660d51623fb32beed5
 
-PODFILE CHECKSUM: a6a424dfc869f52c5e1d13babf08713c0b51701a
+PODFILE CHECKSUM: 9eb3f65c103671dce4df4455a10bf9b6962984d6
 
 COCOAPODS: 1.9.3
