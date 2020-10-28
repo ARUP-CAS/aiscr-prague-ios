@@ -74,7 +74,7 @@ class ThematicsViewController:BaseViewController {
             self.fpLayout.fullEnabled = place != nil
             
             
-            //            self.fpc.move(to: place != nil ? .full : .half, animated: true)
+                        self.fpc.move(to: .half, animated: true)
             self.renderJson()
             
         }.disposed(by: disposeBag)
@@ -175,7 +175,6 @@ class ThematicsViewController:BaseViewController {
         
         let fitCamera = GMSCameraUpdate.fit(bounds, with: UIEdgeInsets(top: 256, left: 32, bottom: mapPadding, right: 32))
         self.mapView.animate(with: fitCamera)
-        //               self.closeView(self)
         
     }
     private func zoomToPolygons(placeId:Int? = nil) {
@@ -333,10 +332,6 @@ extension ThematicsViewController:CKClusterManagerDelegate, GMSMapViewDataSource
         }
     }
     
-    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        //        self.closeView(self)
-        self.selectPlace(place: nil)
-    }
     
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
         self.scaleBar.setNeedsLayout()
@@ -423,6 +418,9 @@ extension ThematicsViewController:FloatingPanelControllerDelegate {
     func floatingPanelDidEndDragging(_ vc: FloatingPanelController, withVelocity velocity: CGPoint, targetPosition: FloatingPanelPosition) {
         if targetPosition == .half {
             //            fpLayout.fullEnabled = true
+            if PlacesService.service.selectedThematic.value == nil {
+                PlacesService.service.selectedThematic.accept(PlacesService.service.thematics.value.first)
+            }
             
         } else if targetPosition == .tip {
             
@@ -438,7 +436,6 @@ extension ThematicsViewController:FloatingPanelControllerDelegate {
     func floatingPanelDidChangePosition(_ vc: FloatingPanelController) {
         
         self.updateMapPadding()
-        self.pullController.collectionView.alpha = vc.position == .tip ? 0 : 1
         
     }
     
@@ -446,12 +443,6 @@ extension ThematicsViewController:FloatingPanelControllerDelegate {
     func floatingPanelDidMove(_ vc: FloatingPanelController) {
         
         
-        let y = self.view.frame.size.height - vc.surfaceView.frame.origin.y
-        if let max =  vc.layout.insetFor(position: .half) {
-            let tip = vc.layout.insetFor(position: .tip) ?? 0
-            self.pullController.collectionView.alpha = min((y - tip) / (max), 1)
-            
-        }
         
         
     }

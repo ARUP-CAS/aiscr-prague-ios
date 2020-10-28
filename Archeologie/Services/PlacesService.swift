@@ -37,7 +37,24 @@
             }
             
             let filteredLocations = locations.filter({ (place) -> Bool in
-                return place.title.searchable.contains(query.searchable) || place.address.searchable.contains(query.searchable) // || place.text.searchable.contains(query.searchable)
+                return place.title.searchable.contains(query.searchable) || place.address.searchable.contains(query.searchable)  || place.content.contains(where: { (content) -> Bool in
+                    switch content.content {
+                    case .text(let texts):
+                        return texts.contains { (text) -> Bool in
+                            return text.text.searchable.contains(query)
+                        }
+                    case .image(let images):
+                        return images.contains { (image) -> Bool in
+                            return image.text.searchable.contains(query)
+                        }
+                    case .video(let videos):
+                        return videos.contains { (video) -> Bool in
+                            return video.text.searchable.contains(query)
+                        }
+                    default:
+                        return false
+                    }
+                })
             }).map {$0.id}
             
             return thematics.filter { (thematic) -> Bool in
@@ -56,116 +73,120 @@
             })
         }.bind(to: locations).disposed(by: disposeBag)
         
-
+        
+    }
+    
+    //    func loadPlaces() {
+    //
+    //        let dateRequest = Service.api.rx.request(.updated).do().map(UpdatedRes.self).asObservable()
+    //
+    //        dateRequest.subscribe(onNext: { (res) in
+    //            if let updated = res.date.isoDateFromString, let lastUpdate = UserDefaults.standard.object(forKey: "lastUpdated") as? Date, let data = UserDefaults.standard.object(forKey: "places") as? Data, let placesRes = try? JSONDecoder().decode(PlacesRes.self, from: data),  updated <= lastUpdate {
+    //
+    //                Single.just(placesRes.places).asObservable().bind(to: self.allPlaces).disposed(by: self.disposeBag)
+    //
+    //            } else {
+    //
+    //                self.getNewPlaces(updated: res.date.isoDateFromString).bind(to: self.allPlaces).disposed(by: self.disposeBag)
+    //
+    //            }
+    //
+    //        }, onError: { (err) in
+    //            print(err.localizedDescription)
+    //            self.getNewPlaces().bind(to: self.allPlaces).disposed(by: self.disposeBag)
+    //
+    //        }).disposed(by: disposeBag)
+    //        allPlaces.bind(to: places).disposed(by: disposeBag)
+    //
+    //    }
+    //    func filter(query:String = "", tags:[String]) {
+    //
+    //
+    //        var filteredPlaces:[Thematic] = allPlaces.value
+    //
+    //        if !query.isEmpty {
+    //
+    //            filteredPlaces = filteredPlaces.filter({ (place) -> Bool in
+    //                return place.title.searchable.contains(query.searchable) || place.address.searchable.contains(query.searchable) || place.implementer.searchable.contains(query.searchable) || place.legalForm.searchable.contains(query.searchable) || place.text.searchable.contains(query.searchable) || place.filter.searchable.contains(query.searchable)
+    //            })
+    //        }
+    //
+    //        if tags.count > 0 {
+    //            filteredPlaces = filteredPlaces.filter({ (place) -> Bool in
+    //                return tags.contains(place.filter)
+    //            })
+    //        }
+    //
+    //
+    //        Single.just(filteredPlaces).asObservable().bind(to:self.places).disposed(by: disposeBag)
+    //
+    //    }
+    //
+    //    private func getNewPlaces(updated:Date? = nil) -> Observable<[Thematic]> {
+    //
+    //        return Service.api.rx.request(.places).do(onSuccess: { (response) in
+    //
+    //            UserDefaults.standard.set(response.data, forKey: "places")
+    //            if let updated = updated {
+    //                UserDefaults.standard.set(updated, forKey: "lastUpdated")
+    //            }
+    //
+    //        }).map(PlacesRes.self).map({res -> [Place] in return res.places}).catchError({ (error) -> PrimitiveSequence<SingleTrait, [Place]> in
+    //            UserDefaults.standard.set(nil, forKey: "lastUpdated")
+    //
+    //            print("ERROR: \(error.localizedDescription)")
+    //            if let data = UserDefaults.standard.object(forKey: "places") as? Data,let places = try? JSONDecoder().decode([Place].self, from: data) {
+    //                return Single.just(places)
+    //            }
+    //
+    //            return Single.just([])
+    //
+    //        }).asObservable()
+    //
+    //
+    //    }
+    //
+    //
+    //    func loadTags() {
+    //
+    //        let observable = Service.api.rx.request(.tags).do(onSuccess: { (response) in
+    //            UserDefaults.standard.set(response.data, forKey: "tags")
+    //        }).map(TagsRes.self).map({ res -> [Tag] in
+    //            return res.tags
+    //        }).catchError({ (error) -> PrimitiveSequence<SingleTrait, [Tag]> in
+    //            print("ERROR: \(error.localizedDescription)")
+    //            if let data = UserDefaults.standard.object(forKey: "tags") as? Data,let tags = try? JSONDecoder().decode([Tag].self, from: data) {
+    //                return Single.just(tags)
+    //            }
+    //            return Single.just([])
+    //        }).asObservable()
+    //
+    //        observable.bind(to: tags).disposed(by: disposeBag)
+    //
+    //        //        tags.asObservable().map{$0.compactMap({tags in return tags.tags}).flatMap({tags in return tags})}.bind(to: allTags).disposed(by: disposeBag)
+    //    }
+    //
+    //    func getSortedTags(for place:Place) -> [Tag] {
+    //        //                let categoryIds = tags.value.map {$0.id}
+    //        //
+    //        //
+    //        //                return place.tags?.map{($0, categoryIds.firstIndex(of: $0.categoryId ?? 999) ?? 999)}
+    //        //                    .sorted(by: {$0.1 < $1.1})
+    //        //                    .map{$0.0} ?? []
+    //
+    //        return tags.value
+    //    }
+    
+    
+    init() {
+        //        loadPlaces()
+        //        loadTags()
+        getThematics()
+        self.selectedThematic.asObservable().subscribe { (_) in
+            self.selectedLocation.accept(nil)
         }
         
-        //    func loadPlaces() {
-        //
-        //        let dateRequest = Service.api.rx.request(.updated).do().map(UpdatedRes.self).asObservable()
-        //
-        //        dateRequest.subscribe(onNext: { (res) in
-        //            if let updated = res.date.isoDateFromString, let lastUpdate = UserDefaults.standard.object(forKey: "lastUpdated") as? Date, let data = UserDefaults.standard.object(forKey: "places") as? Data, let placesRes = try? JSONDecoder().decode(PlacesRes.self, from: data),  updated <= lastUpdate {
-        //
-        //                Single.just(placesRes.places).asObservable().bind(to: self.allPlaces).disposed(by: self.disposeBag)
-        //
-        //            } else {
-        //
-        //                self.getNewPlaces(updated: res.date.isoDateFromString).bind(to: self.allPlaces).disposed(by: self.disposeBag)
-        //
-        //            }
-        //
-        //        }, onError: { (err) in
-        //            print(err.localizedDescription)
-        //            self.getNewPlaces().bind(to: self.allPlaces).disposed(by: self.disposeBag)
-        //
-        //        }).disposed(by: disposeBag)
-        //        allPlaces.bind(to: places).disposed(by: disposeBag)
-        //
-        //    }
-        //    func filter(query:String = "", tags:[String]) {
-        //
-        //
-        //        var filteredPlaces:[Thematic] = allPlaces.value
-        //
-        //        if !query.isEmpty {
-        //
-        //            filteredPlaces = filteredPlaces.filter({ (place) -> Bool in
-        //                return place.title.searchable.contains(query.searchable) || place.address.searchable.contains(query.searchable) || place.implementer.searchable.contains(query.searchable) || place.legalForm.searchable.contains(query.searchable) || place.text.searchable.contains(query.searchable) || place.filter.searchable.contains(query.searchable)
-        //            })
-        //        }
-        //
-        //        if tags.count > 0 {
-        //            filteredPlaces = filteredPlaces.filter({ (place) -> Bool in
-        //                return tags.contains(place.filter)
-        //            })
-        //        }
-        //
-        //
-        //        Single.just(filteredPlaces).asObservable().bind(to:self.places).disposed(by: disposeBag)
-        //
-        //    }
-        //
-        //    private func getNewPlaces(updated:Date? = nil) -> Observable<[Thematic]> {
-        //
-        //        return Service.api.rx.request(.places).do(onSuccess: { (response) in
-        //
-        //            UserDefaults.standard.set(response.data, forKey: "places")
-        //            if let updated = updated {
-        //                UserDefaults.standard.set(updated, forKey: "lastUpdated")
-        //            }
-        //
-        //        }).map(PlacesRes.self).map({res -> [Place] in return res.places}).catchError({ (error) -> PrimitiveSequence<SingleTrait, [Place]> in
-        //            UserDefaults.standard.set(nil, forKey: "lastUpdated")
-        //
-        //            print("ERROR: \(error.localizedDescription)")
-        //            if let data = UserDefaults.standard.object(forKey: "places") as? Data,let places = try? JSONDecoder().decode([Place].self, from: data) {
-        //                return Single.just(places)
-        //            }
-        //
-        //            return Single.just([])
-        //
-        //        }).asObservable()
-        //
-        //
-        //    }
-        //
-        //
-        //    func loadTags() {
-        //
-        //        let observable = Service.api.rx.request(.tags).do(onSuccess: { (response) in
-        //            UserDefaults.standard.set(response.data, forKey: "tags")
-        //        }).map(TagsRes.self).map({ res -> [Tag] in
-        //            return res.tags
-        //        }).catchError({ (error) -> PrimitiveSequence<SingleTrait, [Tag]> in
-        //            print("ERROR: \(error.localizedDescription)")
-        //            if let data = UserDefaults.standard.object(forKey: "tags") as? Data,let tags = try? JSONDecoder().decode([Tag].self, from: data) {
-        //                return Single.just(tags)
-        //            }
-        //            return Single.just([])
-        //        }).asObservable()
-        //
-        //        observable.bind(to: tags).disposed(by: disposeBag)
-        //
-        //        //        tags.asObservable().map{$0.compactMap({tags in return tags.tags}).flatMap({tags in return tags})}.bind(to: allTags).disposed(by: disposeBag)
-        //    }
-        //
-        //    func getSortedTags(for place:Place) -> [Tag] {
-        //        //                let categoryIds = tags.value.map {$0.id}
-        //        //
-        //        //
-        //        //                return place.tags?.map{($0, categoryIds.firstIndex(of: $0.categoryId ?? 999) ?? 999)}
-        //        //                    .sorted(by: {$0.1 < $1.1})
-        //        //                    .map{$0.0} ?? []
-        //
-        //        return tags.value
-        //    }
-        
-        
-        init() {
-            //        loadPlaces()
-            //        loadTags()
-            getThematics()
-        }
+    }
     
     func getGeoJSONData() -> Data {
         var geoString = "{\"type\":\"FeatureCollection\",\"features\":"
@@ -173,4 +194,4 @@
         geoString = "\(geoString)\(geoBody ?? "")}"
         return geoString.data(using: .utf8) ?? Data()
     }
-    }
+ }

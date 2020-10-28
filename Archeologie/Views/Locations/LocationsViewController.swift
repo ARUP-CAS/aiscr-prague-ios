@@ -85,14 +85,6 @@ class LocationsViewController:BaseViewController {
             
             mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             mapContainer.addSubview(mapView)
-            
-            //            mapView.snp.makeConstraints { (make) in
-            //                make.top.equalTo(view.snp.top)
-            //                make.bottom.equalTo(view.snp.bottom)
-            //                make.left.equalTo(view.snp.left)
-            //                make.right.equalTo(view.snp.right)
-            //            }
-            //
             mapView.topAnchor.constraint(equalTo: mapContainer.topAnchor).isActive = true
             mapView.leadingAnchor.constraint(equalTo: mapContainer.leadingAnchor).isActive = true
             mapView.trailingAnchor.constraint(equalTo: mapContainer.trailingAnchor).isActive = true
@@ -255,11 +247,6 @@ extension LocationsViewController:CKClusterManagerDelegate, GMSMapViewDataSource
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
         self.scaleBar.setNeedsLayout()
     }
-    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        //        self.closeView(self)
-        self.selectPlace(place: nil)
-    }
-    
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         if let cluster = marker.cluster, cluster.count > 1 && Float(self.mapView.zoom) == self.mapView.maxZoom {
@@ -314,18 +301,9 @@ extension LocationsViewController:CKClusterManagerDelegate, GMSMapViewDataSource
     
     private func selectPlace(place:Location?) {
         
-        
-        if let previousPlace = PlacesService.service.selectedLocation.value, place == previousPlace{
-            self.fpc.move(to: .full, animated: true)
-        } else {
-            if place != nil && self.fpc.position != .full {
-                self.fpc.move(to: .half, animated: true)
-                
-            }
-            PlacesService.service.selectedLocation.accept(place)
-            self.zoomToPlace(place: place)
-            
-        }
+        PlacesService.service.selectedLocation.accept(place)
+        self.fpc.move(to: .half, animated: true)
+
         
     }
     
@@ -342,6 +320,9 @@ extension LocationsViewController:FloatingPanelControllerDelegate {
     func floatingPanelDidEndDragging(_ vc: FloatingPanelController, withVelocity velocity: CGPoint, targetPosition: FloatingPanelPosition) {
         if targetPosition == .half {
             //            fpLayout.fullEnabled = true
+            if PlacesService.service.selectedLocation.value == nil {
+                PlacesService.service.selectedLocation.accept(PlacesService.service.locations.value.first)
+            }
             
         } else if targetPosition == .tip {
             
@@ -356,19 +337,11 @@ extension LocationsViewController:FloatingPanelControllerDelegate {
     func floatingPanelDidChangePosition(_ vc: FloatingPanelController) {
         
         self.updateMapPadding()
-        self.pullController.collectionView.alpha = vc.position == .tip ? 0 : 1
         
     }
     
     
     func floatingPanelDidMove(_ vc: FloatingPanelController) {
-        
-        let y = self.view.frame.size.height - vc.surfaceView.frame.origin.y
-        if let max =  vc.layout.insetFor(position: .half) {
-            let tip = vc.layout.insetFor(position: .tip) ?? 0
-            self.pullController.collectionView.alpha = min((y - tip) / (max), 1)
-            
-        }
         
         
     }

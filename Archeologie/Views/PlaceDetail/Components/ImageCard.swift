@@ -16,11 +16,8 @@ class ImageCard:UIView {
     
     var image:Image! {
         didSet {
-            if let url = try? image.url.asURL() {
-                imageView.imageView.kf.setImage(with: url, completionHandler: {_ in
-                    self.imageView.zoomMode = .fit // reset zoom mode to update image by loaded
-                    
-                })
+            if let url = try? image.url.asURL(), let rImage = try? UIImage(withContentsOfUrl: url) {
+                imageView.image = rImage
             }
             textLabel.text = image.text
         }

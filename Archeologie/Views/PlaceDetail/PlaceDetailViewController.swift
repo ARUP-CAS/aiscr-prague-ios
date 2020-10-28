@@ -58,8 +58,8 @@ class PlaceDetailViewController: BaseViewController {
         
         place.content.forEach { (content) in
             switch content.content {
-            case .text(let text):
-                cards.append(self.prepare(text:text))
+            case .text(let texts):
+                cards.append(contentsOf: texts.map{self.prepare(text: $0)})
             case .video(let videos):
                 cards.append(contentsOf: videos.map{self.prepare(video: $0)})
             case .image(let images):
