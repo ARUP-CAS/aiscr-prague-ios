@@ -21,7 +21,8 @@ class PlaceDetailViewController: BaseViewController {
     //    @IBOutlet weak var titleImageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var mainStack: UIStackView!
-    
+    @IBOutlet weak var pageControl: UIPageControl!
+
     var gallery:KFImageViewer!
     var mapView:GMSMapView!
     @IBOutlet weak var galleryView: UIView!
@@ -40,10 +41,10 @@ class PlaceDetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.scrollView.delegate = self
         self.title = place.title
         populateStack()
-        
+        pageControl.numberOfPages = place.contentCount
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -107,4 +108,11 @@ class PlaceDetailViewController: BaseViewController {
         }
     }
     
+}
+
+extension PlaceDetailViewController:UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let index = Int(scrollView.contentOffset.x/scrollView.bounds.width)
+        pageControl.currentPage = index
+    }
 }

@@ -108,16 +108,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IcG-Q9-Paf">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0w-Ma-5FD">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="se7-m5-ut3">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="896"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="842"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igr-Na-ZA7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="896"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="842"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -136,12 +136,20 @@
                                     </scrollView>
                                 </subviews>
                             </stackView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="JuN-yO-Fwv">
+                                <rect key="frame" x="146.33333333333334" y="842" width="121.33333333333334" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Txc-zu-vYT"/>
+                                </constraints>
+                            </pageControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="C1w-s4-lh0"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="JuN-yO-Fwv" firstAttribute="top" secondItem="IcG-Q9-Paf" secondAttribute="bottom" id="4xB-Ye-0gM"/>
+                            <constraint firstItem="C1w-s4-lh0" firstAttribute="bottom" secondItem="JuN-yO-Fwv" secondAttribute="bottom" id="8cZ-Lz-9bs"/>
+                            <constraint firstItem="JuN-yO-Fwv" firstAttribute="centerX" secondItem="4dm-uq-G6h" secondAttribute="centerX" id="KbW-X1-xJS"/>
                             <constraint firstAttribute="trailing" secondItem="IcG-Q9-Paf" secondAttribute="trailing" id="Qwk-DU-gVG"/>
-                            <constraint firstAttribute="bottom" secondItem="IcG-Q9-Paf" secondAttribute="bottom" id="XW5-km-oaJ"/>
                             <constraint firstItem="IcG-Q9-Paf" firstAttribute="leading" secondItem="C1w-s4-lh0" secondAttribute="leading" id="YJS-0O-C9N"/>
                             <constraint firstItem="IcG-Q9-Paf" firstAttribute="top" secondItem="4dm-uq-G6h" secondAttribute="top" id="rNF-gu-a6S"/>
                         </constraints>
@@ -157,12 +165,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mainStack" destination="se7-m5-ut3" id="sBB-Oh-RC5"/>
+                        <outlet property="pageControl" destination="JuN-yO-Fwv" id="nIq-Z8-pzh"/>
                         <outlet property="scrollView" destination="P0w-Ma-5FD" id="dHF-vo-B2L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bk-Mr-R7o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3399" y="-332"/>
+            <point key="canvasLocation" x="3398.5507246376815" y="-332.14285714285711"/>
         </scene>
         <!--Nav Controller-->
         <scene sceneID="h3K-Og-Ev2">

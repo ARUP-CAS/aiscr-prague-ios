@@ -40,4 +40,19 @@ struct Location: Codable, Equatable,Place {
         case fourtyfive = 45
         case sixty = 60
     }
+    
+    var contentCount:Int {
+        return content.reduce(0) { (count, content) -> Int in
+            switch content.content {
+            case .text(let texts):
+                return count + texts.count
+            case .video(let videos):
+                return count + videos.count
+            case .image(let images):
+                return count + images.count
+            default:
+                return count
+            }
+        }
+    }
 }
