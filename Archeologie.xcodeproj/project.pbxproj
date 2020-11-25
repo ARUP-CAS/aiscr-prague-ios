@@ -564,7 +564,6 @@
 				4ACA10BB20BC40A600812726 /* Resources */,
 				04B0D7E141D2CDE5C4FAA2BB /* [CP] Embed Pods Frameworks */,
 				783176017192C3B743515679 /* [CP] Copy Pods Resources */,
-				4A5EF97C21C250E7008635AD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -657,24 +656,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Archeologie/Pods-Archeologie-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		4A5EF97C21C250E7008635AD /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 		68CCB8CEA4346D09CD593F52 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
