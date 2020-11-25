@@ -21,12 +21,16 @@ class LocationsPullViewController: BaseViewController {
     @IBOutlet weak var placeTitle: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var gpsLabel: UILabel!
+    
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var webButton: BorderButton!
+    @IBOutlet weak var navigateButton: BorderButton!
+    
     var placeSelected:((Location)->Void)?
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.detailStack.isHidden = true
 
         PlacesService.service.selectedThematic.asObservable().map { $0?.title}.bind(to: self.thematicsLabel.rx.text).disposed(by: disposeBag)
         
@@ -55,9 +59,16 @@ class LocationsPullViewController: BaseViewController {
                 self.addressLabel.text = location.address
                 //        self.authorsLabel.text = place.implementer
                 self.gpsLabel.text = "\(location.latitude), \(location.longitude)"
-                self.detailStack.isHidden = false
+                self.startButton.isEnabled = true
+                self.webButton.isEnabled = true
+                self.navigateButton.isEnabled = true
+                self.webButton.isHidden = location.externalLink == nil
+                
             } else {
-                self.detailStack.isHidden = true
+                self.startButton.isEnabled = false
+                self.webButton.isEnabled = false
+                self.navigateButton.isEnabled = false
+                
             }
 
             self.collectionView.reloadData()
@@ -81,7 +92,7 @@ class LocationsPullViewController: BaseViewController {
     }
     
     @IBAction func showOnWeb(_ sender: Any) {
-        if let url = try? PlacesService.service.selectedLocation.value?.externalLink.asURL() {
+        if let url = try? PlacesService.service.selectedLocation.value?.externalLink?.asURL() {
             UIApplication.shared.open(url)
         }
     }

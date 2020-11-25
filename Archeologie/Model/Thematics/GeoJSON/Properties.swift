@@ -13,11 +13,11 @@ import Foundation
 // MARK: - Properties
 struct Properties: Codable, Equatable {
     var stroke: String
-    var strokeWidth: Int
+    var strokeWidth: Double
     var strokeOpacity: Double
     var fill: String
     var fillOpacity: Double
-    var topicID: Int
+    var topicID: Int?
 
     enum CodingKeys: String, CodingKey {
         case stroke

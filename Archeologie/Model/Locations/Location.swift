@@ -15,7 +15,8 @@ struct Location: Codable, Equatable,Place {
     var id: Int
     var title:String
     var latitude, longitude: Double
-    var address, externalLink: String
+    var address: String
+    var externalLink:String?
     var content: [LocationContent]
     var thematics: [Int]
     var image:String

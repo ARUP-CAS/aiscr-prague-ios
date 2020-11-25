@@ -25,6 +25,7 @@ class PlaceDetailViewController: BaseViewController {
     var gallery:KFImageViewer!
     var mapView:GMSMapView!
     @IBOutlet weak var galleryView: UIView!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     
     lazy var galleryBag:DisposeBag = DisposeBag()
@@ -42,6 +43,7 @@ class PlaceDetailViewController: BaseViewController {
         super.viewDidLoad()
         
         self.title = place.title
+        scrollView.delegate = self
         populateStack()
         
         
@@ -55,11 +57,10 @@ class PlaceDetailViewController: BaseViewController {
         //        cards.append(contentsOf: place.videos.map{self.prepare(video: $0)})
         //        cards.append(self.prepare(text: place.text))
         
-        
         place.content.forEach { (content) in
             switch content.content {
-            case .text(let text):
-                cards.append(self.prepare(text:text))
+            case .text(let texts):
+                cards.append(contentsOf: texts.map{self.prepare(text: $0)})
             case .video(let videos):
                 cards.append(contentsOf: videos.map{self.prepare(video: $0)})
             case .image(let images):
@@ -77,6 +78,8 @@ class PlaceDetailViewController: BaseViewController {
             card.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor, multiplier: 1).isActive = true
             
         }
+        pageControl.numberOfPages = cards.count
+
     }
     
     private func prepare(image:Image) -> ImageCard? {
@@ -107,4 +110,11 @@ class PlaceDetailViewController: BaseViewController {
         }
     }
     
+}
+
+extension PlaceDetailViewController:UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let currentPage = self.scrollView.contentOffset.x / scrollView.frame.size.width
+        self.pageControl.currentPage = Int(currentPage)
+    }
 }

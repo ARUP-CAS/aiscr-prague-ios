@@ -13,7 +13,7 @@ struct LocationContent: Codable, Equatable {
     var content: ContentUnion
 }
 enum ContentUnion:Codable, Equatable {
-    case text(Text)
+    case text([Text])
     case video([Video])
     case model([Model])
     case image([Image])
@@ -21,14 +21,8 @@ enum ContentUnion:Codable, Equatable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        if let x = try? container.decode([Image].self) {
-            self = .image(x)
-            return
-        }
-        if let x = try? container.decode(Text.self) {
-            self = .text(x)
-            return
-        }
+
+
         if let x = try? container.decode([Video].self) {
             self = .video(x)
             return
@@ -39,6 +33,14 @@ enum ContentUnion:Codable, Equatable {
         }
         if let x = try? container.decode([AR].self) {
             self = .ar(x)
+            return
+        }
+        if let x = try? container.decode([Image].self){
+            self = .image(x)
+            return
+        }
+        if let x = try? container.decode([Text].self) {
+            self = .text(x)
             return
         }
         throw DecodingError.typeMismatch(ContentUnion.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for ContentUnion"))

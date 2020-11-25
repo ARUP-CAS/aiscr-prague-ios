@@ -63,6 +63,9 @@ class ThematicsViewController:BaseViewController {
             self.zoomToPolygons()
             self.searchField.resignFirstResponder()
             
+            if self.fpc != nil && places.element?.count == 0 {
+                self.fpc.move(to: .tip, animated: true)
+            }
             
             
         }.disposed(by: disposeBag)
@@ -72,8 +75,8 @@ class ThematicsViewController:BaseViewController {
             guard let place = event.element, self.fpc != nil else { return }
             
             self.fpLayout.fullEnabled = place != nil
-            
-            
+            self.fpc.delegate = self
+            self.fpc.move(to: .half, animated: true)
             //            self.fpc.move(to: place != nil ? .full : .half, animated: true)
             self.renderJson()
             
@@ -173,7 +176,7 @@ class ThematicsViewController:BaseViewController {
             $0.includingCoordinate($1.coordinate)
         }
         
-        let fitCamera = GMSCameraUpdate.fit(bounds, with: UIEdgeInsets(top: 256, left: 32, bottom: mapPadding, right: 32))
+        let fitCamera = GMSCameraUpdate.fit(bounds, with: UIEdgeInsets(top: 128, left: 32, bottom: mapPadding, right: 32))
         self.mapView.animate(with: fitCamera)
         //               self.closeView(self)
         
@@ -195,13 +198,11 @@ class ThematicsViewController:BaseViewController {
             
         }
         let bounds =  coordinates.reduce(GMSCoordinateBounds()) {
-            
             $0.includingCoordinate($1)
         }
         
-        let fitCamera = GMSCameraUpdate.fit(bounds, with: UIEdgeInsets(top: 256, left: 32, bottom: mapPadding, right: 32))
+        let fitCamera = GMSCameraUpdate.fit(bounds, with: UIEdgeInsets(top: 128, left: 32, bottom: mapPadding, right: 32))
         self.mapView.animate(with: fitCamera)
-        //               self.closeView(self)
         
     }
     private func setPlaces(filterByVisible: Bool = false) {
@@ -249,7 +250,8 @@ class ThematicsViewController:BaseViewController {
             
             // Add and show the views managed by the `FloatingPanelController` object to self.view.
             fpc.addPanel(toParent: self)
-            
+            fpc.contentMode = .fitToBounds
+
             fpc.surfaceView.cornerRadius = 20
             
             fpc.set(contentViewController: pullController)
@@ -333,11 +335,6 @@ extension ThematicsViewController:CKClusterManagerDelegate, GMSMapViewDataSource
         }
     }
     
-    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        //        self.closeView(self)
-        self.selectPlace(place: nil)
-    }
-    
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
         self.scaleBar.setNeedsLayout()
     }
@@ -376,7 +373,7 @@ extension ThematicsViewController:CKClusterManagerDelegate, GMSMapViewDataSource
         }
         
         if let cluster = marker.cluster, cluster.count > 1 {
-            let fitCamera = GMSCameraUpdate.fit(cluster, with: UIEdgeInsets(top: mapPadding, left: 32, bottom: mapPadding, right: 32))
+            let fitCamera = GMSCameraUpdate.fit(cluster, with: UIEdgeInsets(top: 128, left: 32, bottom: mapPadding, right: 32))
             self.mapView.animate(with: fitCamera)
             return true
         }
@@ -397,7 +394,7 @@ extension ThematicsViewController:CKClusterManagerDelegate, GMSMapViewDataSource
     private func selectPlace(place:Thematic?) {
         
         if let previousPlace = PlacesService.service.selectedThematic.value, place == previousPlace{
-            self.fpc.move(to: .full, animated: true)
+//            self.fpc.move(to: .full, animated: true)
         } else {
             if place != nil && self.fpc.position != .full {
                 self.fpc.move(to: .half, animated: true)
@@ -438,20 +435,22 @@ extension ThematicsViewController:FloatingPanelControllerDelegate {
     func floatingPanelDidChangePosition(_ vc: FloatingPanelController) {
         
         self.updateMapPadding()
-        self.pullController.collectionView.alpha = vc.position == .tip ? 0 : 1
-        
+//        self.pullController.collectionView.alpha = vc.position == .tip ? 0 : 1
+        if vc.position == .half && PlacesService.service.selectedThematic.value == nil {
+            PlacesService.service.selectedThematic.accept(PlacesService.service.thematics.value.first)
+        }
     }
     
     
     func floatingPanelDidMove(_ vc: FloatingPanelController) {
         
         
-        let y = self.view.frame.size.height - vc.surfaceView.frame.origin.y
-        if let max =  vc.layout.insetFor(position: .half) {
-            let tip = vc.layout.insetFor(position: .tip) ?? 0
-            self.pullController.collectionView.alpha = min((y - tip) / (max), 1)
-            
-        }
+//        let y = self.view.frame.size.height - vc.surfaceView.frame.origin.y
+//        if let max =  vc.layout.insetFor(position: .half) {
+//            let tip = vc.layout.insetFor(position: .tip) ?? 0
+//            self.pullController.collectionView.alpha = min((y - tip) / (max), 1)
+//
+//        }
         
         
     }

@@ -139,7 +139,7 @@ class LocationsViewController:BaseViewController {
             $0.includingCoordinate($1.coordinate)
         }
         
-        let fitCamera = GMSCameraUpdate.fit(bounds, with: UIEdgeInsets(top: 256, left: 32, bottom: mapPadding, right: 32))
+        let fitCamera = GMSCameraUpdate.fit(bounds, with: UIEdgeInsets(top: 128, left: 32, bottom: mapPadding, right: 32))
         self.mapView.animate(with: fitCamera)
         //               self.closeView(self)
         
@@ -255,11 +255,7 @@ extension LocationsViewController:CKClusterManagerDelegate, GMSMapViewDataSource
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
         self.scaleBar.setNeedsLayout()
     }
-    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        //        self.closeView(self)
-        self.selectPlace(place: nil)
-    }
-    
+
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         if let cluster = marker.cluster, cluster.count > 1 && Float(self.mapView.zoom) == self.mapView.maxZoom {
@@ -296,7 +292,7 @@ extension LocationsViewController:CKClusterManagerDelegate, GMSMapViewDataSource
         }
         
         if let cluster = marker.cluster, cluster.count > 1 {
-            let fitCamera = GMSCameraUpdate.fit(cluster, with: UIEdgeInsets(top: mapPadding, left: 32, bottom: mapPadding, right: 32))
+            let fitCamera = GMSCameraUpdate.fit(cluster, with: UIEdgeInsets(top: 128, left: 32, bottom: mapPadding, right: 32))
             self.mapView.animate(with: fitCamera)
             return true
         }
@@ -316,7 +312,7 @@ extension LocationsViewController:CKClusterManagerDelegate, GMSMapViewDataSource
         
         
         if let previousPlace = PlacesService.service.selectedLocation.value, place == previousPlace{
-            self.fpc.move(to: .full, animated: true)
+//            self.fpc.move(to: .full, animated: true)
         } else {
             if place != nil && self.fpc.position != .full {
                 self.fpc.move(to: .half, animated: true)
@@ -356,19 +352,21 @@ extension LocationsViewController:FloatingPanelControllerDelegate {
     func floatingPanelDidChangePosition(_ vc: FloatingPanelController) {
         
         self.updateMapPadding()
-        self.pullController.collectionView.alpha = vc.position == .tip ? 0 : 1
-        
+//        self.pullController.collectionView.alpha = vc.position == .tip ? 0 : 1
+        if vc.position == .half && PlacesService.service.selectedLocation.value == nil {
+            PlacesService.service.selectedLocation.accept(PlacesService.service.locations.value.first)
+        }
     }
     
     
     func floatingPanelDidMove(_ vc: FloatingPanelController) {
-        
-        let y = self.view.frame.size.height - vc.surfaceView.frame.origin.y
-        if let max =  vc.layout.insetFor(position: .half) {
-            let tip = vc.layout.insetFor(position: .tip) ?? 0
-            self.pullController.collectionView.alpha = min((y - tip) / (max), 1)
-            
-        }
+//
+//        let y = self.view.frame.size.height - vc.surfaceView.frame.origin.y
+//        if let max =  vc.layout.insetFor(position: .half) {
+//            let tip = vc.layout.insetFor(position: .tip) ?? 0
+//            self.pullController.collectionView.alpha = min((y - tip) / (max), 1)
+//
+//        }
         
         
     }

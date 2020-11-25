@@ -14,28 +14,35 @@ class ThematicsPullViewController: BaseViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var placeImage: UIImageView!
-    @IBOutlet weak var placeTitle: UILabel!
-    
     @IBOutlet weak var detailStack: UIStackView!
+    
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var creditsButton: UIButton!
+    @IBOutlet weak var characteristicsLabel: UILabel!
+    
     
     var placeSelected:((Thematic)->Void)?
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        self.detailStack.isHidden = true
         
         PlacesService.service.selectedThematic.asObservable().subscribe { (event) in
             
             guard let place = event.element else { return }
             
-            self.detailStack.isHidden = place == nil
-            self.collectionView.reloadData()
+            self.startButton.isEnabled = place != nil
+            self.creditsButton.isEnabled = place != nil
             
-            if let place = place {
-                self.setupPlace(place: place)
+            if let characteristics = place?.characteristics {
+                self.characteristicsLabel.isHidden = false
+                self.characteristicsLabel.text = characteristics
+            } else {
+                self.characteristicsLabel.isHidden = true
             }
+            
+            self.collectionView.reloadData()
+    
             
             
         }.disposed(by: disposeBag)
@@ -55,12 +62,7 @@ class ThematicsPullViewController: BaseViewController {
         }.disposed(by: disposeBag)
     }
     
-    private func setupPlace(place:Thematic) {
-        if let url = try? place.image.asURL() {
-            placeImage.kf.setImage(with: url)
-        }
-        placeTitle.text = place.title
-    }
+ 
     @IBAction func startGuide() {
         
         if let locationsViewController = self.storyboard?.instantiateViewController(identifier: "locationsViewController") as? LocationsViewController, let place = PlacesService.service.selectedThematic.value {

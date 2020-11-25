@@ -19,7 +19,7 @@ struct Thematic: Codable, Equatable, Place {
     var logo1, logo2, logo3, logo4: String
     var image:String
 
-    var author, professionalCooperation, artisticsCooperation, thanks: String
+    var author, professionalCooperation, artisticsCooperation, thanks, characteristics: String?
     var geoJSON: GeoJSON?
 
     var coordinate:CLLocationCoordinate2D {

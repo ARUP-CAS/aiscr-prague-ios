@@ -1,43 +1,46 @@
 
 /* Class = "UIButton"; normalTitle = "OPEN LOCATION"; ObjectID = "0Uf-nb-jan"; */
-"0Uf-nb-jan.normalTitle" = "Zobrazit detail";
+"0Uf-nb-jan.normalTitle" = "OPEN LOCATION";
 
 
 /* Class = "UILabel"; text = "In artistic cooperation with"; ObjectID = "7x1-ZF-XAo"; */
-"7x1-ZF-XAo.text" = "Výtvarná spolupráce";
-
+"7x1-ZF-XAo.text" = "In artistic cooperation with";
 /* Class = "UIButton"; normalTitle = "Navigate"; ObjectID = "Exw-vA-FIo"; */
-"Exw-vA-FIo.normalTitle" = "Navigovat";
+"Exw-vA-FIo.normalTitle" = "Navigate";
 
 /* Class = "UILabel"; text = "In cooperation with"; ObjectID = "FSl-t9-K1y"; */
-"FSl-t9-K1y.text" = "Odborná spolupráce";
+"FSl-t9-K1y.text" = "In cooperation with";
 
 /* Class = "UILabel"; text = "Topics"; ObjectID = "GPk-R7-WsE"; */
-"GPk-R7-WsE.text" = "Vycházky";
+"GPk-R7-WsE.text" = "Guides";
 
 /* Class = "UILabel"; text = "Acknowledgment"; ObjectID = "OOx-Cx-VYJ"; */
-"OOx-Cx-VYJ.text" = "Poděkování";
+"OOx-Cx-VYJ.text" = "Acknowledgment";
 
 /* Class = "UILabel"; text = "Author"; ObjectID = "PT5-Hy-NuJ"; */
-"PT5-Hy-NuJ.text" = "Autor";
+"PT5-Hy-NuJ.text" = "Author";
 
 
 /* Class = "UIButton"; normalTitle = "Show on web"; ObjectID = "Snp-ji-pzH"; */
-"Snp-ji-pzH.normalTitle" = "Zobrazit na webu";
+"Snp-ji-pzH.normalTitle" = "Show on web";
 
+/* Class = "UILabel"; text = "Label"; ObjectID = "bFl-CO-QGt"; */
+"bFl-CO-QGt.text" = "Label";
 
 /* Class = "UITextField"; placeholder = "Search..."; ObjectID = "dgl-tc-L6k"; */
-"dgl-tc-L6k.placeholder" = "Hledat...";
+"dgl-tc-L6k.placeholder" = "Search...";
+
 
 /* Class = "UIButton"; normalTitle = "Credits"; ObjectID = "klo-Xx-Etp"; */
-"klo-Xx-Etp.normalTitle" = "O tvůrcích";
+"klo-Xx-Etp.normalTitle" = "Credits";
+
 
 /* Class = "UILabel"; text = "Address"; ObjectID = "sFe-Ha-wXt"; */
-"sFe-Ha-wXt.text" = "Adresa";
+"sFe-Ha-wXt.text" = "Address";
 
 
 /* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "ufB-jP-bCP"; */
-"ufB-jP-bCP.title" = "Zpět";
+"ufB-jP-bCP.title" = "Back";
 
 /* Class = "UIButton"; normalTitle = "START GUIDE"; ObjectID = "yNT-rb-UqN"; */
-"yNT-rb-UqN.normalTitle" = "Začít vycházku";
+"yNT-rb-UqN.normalTitle" = "START GUIDE";
