@@ -27,7 +27,7 @@ struct Thematic: Codable, Equatable, Place {
       }
     
     enum CodingKeys: String, CodingKey {
-         case id, title, latitude, longitude, locations, image, logo1, logo2, logo3, logo4, author, professionalCooperation, artisticsCooperation, thanks
+         case id, title, latitude, longitude, locations, image, logo1, logo2, logo3, logo4, author, professionalCooperation, artisticsCooperation, thanks, characteristics
          case geoJSON = "geoJson"
      }
 }

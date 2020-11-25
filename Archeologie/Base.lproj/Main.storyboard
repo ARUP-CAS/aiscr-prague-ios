@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Im9-be-KNP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Im9-be-KNP">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -437,10 +437,12 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="characteristicsLabel" destination="BOF-8l-JTp" id="kD9-Zj-iqz"/>
                         <outlet property="collectionView" destination="77g-Xd-rCm" id="Ht4-jr-vBk"/>
+                        <outlet property="creditsButton" destination="klo-Xx-Etp" id="NQ7-1a-JAn"/>
                         <outlet property="detailStack" destination="TVV-Rb-pR3" id="JCl-H6-GxT"/>
-                        <outlet property="guideDescription" destination="BOF-8l-JTp" id="UfX-HU-IIe"/>
                         <outlet property="scrollView" destination="bsl-FN-fN1" id="xve-q7-qXs"/>
+                        <outlet property="startButton" destination="yNT-rb-UqN" id="XuK-oX-FSn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bN1-d0-IEE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -690,10 +692,13 @@
                         <outlet property="detailStack" destination="IWc-O7-yAk" id="8Tf-aI-PFi"/>
                         <outlet property="difficultyIcon" destination="v8y-la-zrf" id="Cj3-cz-KJz"/>
                         <outlet property="gpsLabel" destination="gwG-2T-QKF" id="F6b-AS-GRU"/>
+                        <outlet property="navigateButton" destination="Exw-vA-FIo" id="9pL-Bj-Hlb"/>
                         <outlet property="openIcon" destination="7jB-Hf-q9L" id="NKO-0n-bJS"/>
                         <outlet property="scrollView" destination="5IU-65-fgT" id="N4E-qn-Yfs"/>
+                        <outlet property="startButton" destination="0Uf-nb-jan" id="l85-Jc-A6G"/>
                         <outlet property="thematicsLabel" destination="1rM-eJ-1kX" id="LLU-0q-g8f"/>
                         <outlet property="timeIcon" destination="Usg-mh-iQd" id="bTR-qw-nuD"/>
+                        <outlet property="webButton" destination="Snp-ji-pzH" id="z7r-GY-sg3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wuJ-hJ-QFf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -879,4 +884,3 @@
         </systemColor>
     </resources>
 </document>
-

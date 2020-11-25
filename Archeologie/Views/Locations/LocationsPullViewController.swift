@@ -15,17 +15,21 @@ class LocationsPullViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var thematicsLabel: UILabel!
     @IBOutlet weak var detailStack: UIStackView!
-    
-    @IBOutlet weak var placeImage: UIImageView!
-    
-    @IBOutlet weak var placeTitle: UILabel!
+
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var gpsLabel: UILabel!
+    
+    @IBOutlet weak var openIcon: UIImageView!
+    @IBOutlet weak var timeIcon: UIImageView!
+    @IBOutlet weak var difficultyIcon: UIImageView!
+
     
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var webButton: BorderButton!
     @IBOutlet weak var navigateButton: BorderButton!
     
+
+
     var placeSelected:((Location)->Void)?
 
     override func viewDidLoad() {
@@ -51,11 +55,17 @@ class LocationsPullViewController: BaseViewController {
         
         PlacesService.service.selectedLocation.asObservable().subscribe { event in
             if let element = event.element, let location = element {
-                
-                if let url = try? location.image.asURL() {
-                    self.placeImage.kf.setImage(with: url)
+                self.openIcon.isHidden = !location.openTime
+    
+                switch location.timeOfVisit {
+                case .fifteen, .thrity, .fourtyfive, .sixty:
+                    self.timeIcon.isHidden = false
+                    self.timeIcon.image = UIImage(named: "visit-duration-\(location.timeOfVisit.rawValue)")
+                default:
+                    self.timeIcon.isHidden = true
                 }
-                self.placeTitle.text = location.title
+
+                self.difficultyIcon.image = UIImage(named: "difficulty-\(location.availability.rawValue)")
                 self.addressLabel.text = location.address
                 //        self.authorsLabel.text = place.implementer
                 self.gpsLabel.text = "\(location.latitude), \(location.longitude)"
@@ -68,10 +78,10 @@ class LocationsPullViewController: BaseViewController {
                 self.startButton.isEnabled = false
                 self.webButton.isEnabled = false
                 self.navigateButton.isEnabled = false
-                
             }
 
             self.collectionView.reloadData()
+            
 
         }.disposed(by: disposeBag)
         
