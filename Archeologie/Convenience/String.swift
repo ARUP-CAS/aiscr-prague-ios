@@ -420,7 +420,7 @@ extension String {
     public var htmlAttributed:NSAttributedString {
         do {
             return try  NSAttributedString(
-                data: "<style>body{font-size:14px; font-family:'Helvetica Neue', Helvetica,sans-serif;}</style> \(self)".data(using: String.Encoding.unicode, allowLossyConversion: true)!,
+                data: "<style>body{font-size:14px; font-family:'Helvetica Neue', Helvetica,sans-serif;color:white;}</style> \(self)".data(using: String.Encoding.unicode, allowLossyConversion: true)!,
                 options:[NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
             
         } catch {

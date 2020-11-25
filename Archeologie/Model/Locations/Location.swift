@@ -21,9 +21,39 @@ struct Location: Codable, Equatable,Place {
     var thematics: [Int]
     var image:String
     var type:String
+    var openTime:Bool
+    var timeOfVisit:TimeOfVisit
+    var availability:Availability
     
     var coordinate:CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
     
+    enum Availability:String,Codable {
+        case easy
+        case good
+        case hard
+    }
+    enum TimeOfVisit:Int,Codable {
+        case none = 0
+        case fifteen = 15
+        case thrity = 30
+        case fourtyfive = 45
+        case sixty = 60
+    }
+    
+    var contentCount:Int {
+        return content.reduce(0) { (count, content) -> Int in
+            switch content.content {
+            case .text(let texts):
+                return count + texts.count
+            case .video(let videos):
+                return count + videos.count
+            case .image(let images):
+                return count + images.count
+            default:
+                return count
+            }
+        }
+    }
 }
