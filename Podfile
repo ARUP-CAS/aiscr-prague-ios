@@ -25,8 +25,6 @@ pod 'GeoJSONSerialization'
 pod 'Google-Maps-iOS-Utils', :git => 'https://github.com/MRzr/google-maps-ios-utils.git'
 pod 'ClusterKit'
 pod 'UIEmptyState'
-pod 'Fabric', '~> 1.9.0'
-pod 'Crashlytics', '~> 3.12.0'
 pod 'Firebase/Performance'
 pod 'DPPickerManager'
 end

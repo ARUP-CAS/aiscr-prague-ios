@@ -3,11 +3,8 @@ PODS:
   - ClusterKit (0.5.0):
     - ClusterKit/Core (= 0.5.0)
   - ClusterKit/Core (0.5.0)
-  - Crashlytics (3.12.0):
-    - Fabric (~> 1.9.0)
   - Differentiator (4.0.1)
   - DPPickerManager (1.0.2)
-  - Fabric (1.9.0)
   - Firebase (6.31.1):
     - Firebase/Core (= 6.31.1)
   - Firebase/Analytics (6.31.1):
@@ -161,9 +158,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - ClusterKit
-  - Crashlytics (~> 3.12.0)
   - DPPickerManager
-  - Fabric (~> 1.9.0)
   - Firebase
   - Firebase/Analytics
   - Firebase/Performance
@@ -187,10 +182,8 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - ClusterKit
-    - Crashlytics
     - Differentiator
     - DPPickerManager
-    - Fabric
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalytics
@@ -241,10 +234,8 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   ClusterKit: 6d4b2fdfdd2a74a386fd67dd60a29a69851745e0
-  Crashlytics: a33af323773f73904037dc2e684cd2f0d29f4fe2
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   DPPickerManager: ae56c97b351e49c047e6daeb16ec358cb247be88
-  Fabric: 09ef2d9b99b104702bede1acaf469fb8f20a9146
   Firebase: 658370fa0181826a74b7cfca8d68c5856ca749ae
   FirebaseABTesting: 8a9d8df3acc2b43f4a22014ddf9f601bca6af699
   FirebaseAnalytics: 0ca9aa2af7cc4dc92392b7a78bfc49feaa2eb60f
@@ -280,6 +271,6 @@ SPEC CHECKSUMS:
   YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
   ZoomImageView: 2a88d0c10ad30b9a06c8f5660d51623fb32beed5
 
-PODFILE CHECKSUM: 9eb3f65c103671dce4df4455a10bf9b6962984d6
+PODFILE CHECKSUM: f3bec393451020d2e3ad82c285708c64061fab66
 
 COCOAPODS: 1.10.0

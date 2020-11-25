@@ -16,7 +16,7 @@ class ImageCard:UIView {
     
     var image:Image! {
         didSet {
-            if let url = try? image.url.asURL(), let rImage = try? UIImage(withContentsOfUrl: url) {
+            if let url = try? image.url.asURL(), let data = try? Data(contentsOf: url), let rImage = UIImage(data: data) {
                 imageView.image = rImage
             }
             textLabel.text = image.text
